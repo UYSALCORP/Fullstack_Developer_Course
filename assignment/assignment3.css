@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+nav a{
+    padding: 0.5rem;
+    font-family: "Lilita One", sans-serif;
+    text-shadow: 3px 3px 5px white;
+    color: white;
+    text-decoration: none;
+}
+nav a i{
+    padding: 0.5rem;
+    text-decoration: none;
+    text-shadow: none;
+    color: white;
+}
+header{
+    background-image: url(/assignment/backgroundAssignment3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    height: 600px;
+    color: white;
+}
+header h2 {
+    margin-bottom: 50px;
+    font-size: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+hr {
+    background-color: #ff0078;
+    border: none;
+    width: 200px;
+    height: 1.5px;
+}
+header h1 {
+    margin-bottom: 40px;
+    font-family: "Permanent Marker", cursive;
+    text-transform: uppercase;
+}
+header p {
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 5px white;
+}
+header a {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: white;
+    background-color: #ff0078;
+    border: 2px solid #ff0078;
+    border-radius: 15px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: white;
+    height: 100px;
+    text-align: center;
+    margin-top: 50px;
+}
+section a {
+    padding: 30px;
+    border-radius: 50%;
+    
+}
+#b1 {
+    background-color: #ff0078;
+    
+}
+#b2{
+    background-color:yellow ;
+}
+#b3{ 
+    background-color: rgb(30, 167, 30);
+}
+section p {
+    margin: 50px;
+}
+section i {
+    color: white;
+    font-size: 2rem;
+    
+}

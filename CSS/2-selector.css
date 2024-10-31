@@ -1,0 +1,27 @@
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Element Selector */
+h1{
+    background-color: royalblue;
+    padding: 10px;
+    border: 2px solid 
+}
+/* Class Selector */
+.box{
+    width: 330px;
+    font-size: 20px;
+    color: red;
+    background-color: black;
+    padding: 5px;
+    margin: 15px;
+    border: 2px solid red;
+}
+/* Id Selector */
+#firstId{
+    margin: 20px;
+    background-color: crimson;
+}

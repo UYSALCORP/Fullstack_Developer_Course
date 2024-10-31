@@ -1,0 +1,55 @@
+main {
+    background-color: rgba(87, 154, 187, 0.698);
+    width: 90%;
+    margin: 50px auto;
+    position: relative; /* position:absolute; burada buna göre uyguluyor. relative olmasaydı box3 -> body'nin sağ üst köşesine giderdi. */
+}
+.box1{
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    /* position: static; Default değer */
+}
+.box2 {
+    background-color: greenyellow;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 10px;
+    left: 20px;
+    /* z-index: 1; Hangi şeyin üstte duracağını belirtiriz. */
+}
+.box3 {
+    background-color: fuchsia;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.box4 {
+    background-color: teal;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+.icerde {
+    background-color: black;
+    color: yellow;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* box2'de pos:relative; varsa box2 sağ altında konum alır. Yoksa main'de arar ona göre konum alır. Onda da yoksa body'ye göre konum alır. */
+}
+.paragraf2 {
+    background-color: olive;
+    border-radius: 50px;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    /* Taşıyıcısı oldugu konuma kadar beraberinde gelir. Burada taşıyıcısı main tagı */
+}

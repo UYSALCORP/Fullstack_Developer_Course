@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    padding: 1rem;
+    height: 100vh;
+}
+ul {
+    background-color: rebeccapurple;
+    list-style-type: none;
+    padding: 1rem 0;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    /* Yatayda hizalama */
+    align-items: center;
+    height: 10%;
+    /* align-items için içeriğin bir yüksekliğe sahip olması lazım */
+    gap: 1rem; 
+    /* Satır ve sütun arası boşluk vermede kullanılır. */
+    flex-wrap: wrap;
+    /* Sayfayı daralttıgında sayfada yer yoksa alt satıra geçmesini sağlar. */
+}
+ul * {
+    background-color: fuchsia;
+}
+ul li {
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100px;
+}
+
+.container {
+    background-color: purple;
+    margin-top: 50px;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.container * {
+    background-color: darkorange;
+    height: 50px;
+    
+}
+.container header {
+    width: 100%;
+}
+.container aside {
+    width: calc((33.33%) - (2rem/3));
+}
+.container main {
+    width: calc((33.33%) - (2rem/3))
+}
+.container article {
+    width: calc((33.33%) - (2rem/3));
+}
+.container footer {
+    width: 100%;
+}
+
+.shrink {
+    background-color: indigo;
+    margin-top: 50px;
+    display: flex;
+}
+.box {
+    width: 200px;
+    height: 100px;
+}
+.box1 {
+    background-color: orange;
+    /* flex-grow: 1; */
+    /* Kalan boşluğu hangi kat oranında alacağı */
+    flex-basis: 100px;
+}
+.box2 {
+    background-color: crimson;
+    /* flex-grow: 1; */
+    flex-basis: 250px;
+    flex: 1;
+    /* tek bir değer kullanırsanız. grow anlamına gelir. */
+    /* basis genişlik, grow büyüme, shrink küçülme */
+}
+.box3 {
+    background-color: green;
+    /* flex-grow: 1; */
+    /* flex-basis: 400px; */
+    flex: 20%;
+    /* yüzde, auto, em gibi değerler kullanırsan da basis anlamına gelir. */
+}
+
+.container1 {
+    background-color: purple;
+    margin-top: 50px;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.container1 * {
+    background-color: yellow;
+    width: 200px;
+    height: 50px;
+}
+.container1 header {
+    flex-basis: 100%;
+}
+.container1 aside {
+    /* flex-grow: 1; */
+    /* flex-basis: 30%; */
+    flex: 1;
+}
+.container1 main {
+    /* flex-grow: 4; */
+    /* flex-basis: 40%; */
+    flex: 4;
+}
+.container1 article {
+    /* flex-grow: 1; */
+    /* flex-basis: 25%; */
+    flex: 1;
+}
+.container1 footer {
+    flex-basis: 100%;
+}

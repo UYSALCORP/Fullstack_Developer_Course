@@ -1,0 +1,47 @@
+h1 {
+    background-color: crimson;
+}
+a {
+    background-color: bisque;
+    /* Inline elementlere genişlik&yükseklik veremezsin */
+    width: 100px;
+    /* height: 250px; */
+    display: inline-block;
+    /* Inline-block yaparsanız genişlik&yükseklik verebilirsiniz. */
+    padding: 50px;
+}
+label {
+    background-color: olive;
+    margin: 50px; /* Sağdan ve soldan açtı.Alttan ve üstten açmaz. */
+    padding: 50px; /* Sağdan ve soldan genişletti. */
+}
+span {
+    background-color: orangered;
+}
+.box {
+    background-color: teal;
+    margin: 5px;
+    width: 250px;
+    height: 100px;
+    display: inline-block;
+}
+.ornek {
+    border: 5px solid red;
+    text-align: center;
+    /* 1.Yöntem | Ya block element'te text-align:center; veriyorum */
+    width: 150px;
+    margin: auto;
+}
+i {
+    background-color: hotpink;
+    text-align: center;
+    /* 2.Yöntem | i'yi display:inline-block; yapmak */
+}
+b {
+    border: 2px solid crimson;
+    display: block;
+    width: 75px;
+    margin: auto;
+    text-align: center;
+    /* Margin:auto; sadece block elementlere verilebilir. ve bir Widht değeri olması gerekir. */
+}

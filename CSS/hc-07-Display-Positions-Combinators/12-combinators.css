@@ -1,0 +1,62 @@
+div p {
+    /* Div içerisindeki tüm p'ler */
+    background-color: olive;
+}
+.container div p {
+    background-color: teal;ö
+}
+p + div {
+    /* p'den hemen sonra gelen div anlamına gelir. */
+    background-color: rebeccapurple;
+}
+ div ~ p {
+    /* div'den hemen sonra gelen bütün p'ler */
+    background-color: darkorange;
+ }
+ div > p {
+    /* Paren'ti div olan p'ler */
+    background-color: crimson;
+ }
+
+ /*! Attribute Selector */
+ a[target="_blank"] {
+    background-color: orange;
+ }
+ h2[title="baslik1"] {
+    background-color: crimson;
+ }
+ p[title="paragraf2"] {
+    background-color: skyblue;
+ }
+
+ /*! Psuedo Selector */
+ p[title="paragraf3"]::first-line {
+    /* background-color: red; */
+    color: crimson;
+ }
+
+ /*! Outline */
+ .out {
+    border: 2px solid red;
+    width: 20rem;
+    margin: 50px auto;
+    text-align: center;
+    
+ }
+ .out:hover{
+    /* Border dışı border gibi bir şey */
+    outline: 5px dashed black;
+    /* border ile outline arası boşluk */
+    outline-offset: 0.5rem;
+ }
+ .cw {
+    border: 5px solid red;
+    width: 20rem;
+    margin: 50px auto;
+    text-align: center;
+    outline: 5px solid ;
+    outline-offset: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    background-color: bisque;
+ }

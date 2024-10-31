@@ -1,0 +1,48 @@
+.container {
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+.container * {
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+header {
+  background-color: teal;
+  margin-top: 10px;
+}
+
+main {
+  background-color: skyblue;
+  padding: 5px;
+}
+
+aside {
+  background-color: darkorange;
+  width: 25%;
+  height: 300px;
+  float: right;
+  margin-left: 5px;
+}
+
+article {
+  background-color: greenyellow;
+  width: 70%;
+  height: 300px;
+  float: left;
+}
+
+footer {
+  background-color: coral;
+}
+/* .clear {
+  clear: both;
+  border: none;
+} */
+ .clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+ }

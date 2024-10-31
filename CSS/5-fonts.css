@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
+/* 1. Yöntem Css Font Kullanma */
+.cssFont {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: crimson;
+}
+/* 2. Yöntem Google Fonts ile Harici Font Kullanma */
+.googleFontLink{  
+    font-family: "Playwrite GB S", cursive;
+}
+.googleFontImport {
+    font-family: "Bungee Tint", sans-serif;
+}

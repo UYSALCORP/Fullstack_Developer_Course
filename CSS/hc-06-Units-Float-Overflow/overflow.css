@@ -1,0 +1,37 @@
+.box {
+    border: 5px solid olive;
+    margin-bottom: 4rem;
+    width: 20rem;
+    height: 4rem;
+    background-color: bisque;
+}
+.box1{
+    overflow: visible;
+}
+.box2{
+    overflow: hidden;
+}
+.box3{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.box4{
+    overflow: auto;
+}
+.box5{
+    /* overflow-y: hidden;
+    overflow-x: scroll; */
+    overflow: auto;
+    height: 14rem;
+}
+.par1{
+    background-color: purple;
+    width: 30rem;
+}
+.box5::-webkit-scrollbar {
+    /* Scrollbar'ı gizlemek için; 3 yöntem */
+    /*! width: 0; */
+    /*? display: none; */
+    visibility: hidden;
+    color: red;
+}

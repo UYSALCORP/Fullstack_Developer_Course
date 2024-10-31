@@ -1,0 +1,67 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    background-color: white;
+    width: 400px;
+    padding: 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+header {
+    text-align: center;
+}
+header img{
+    width: 80px;
+}
+h1 {
+    color: #00796b;
+    font-size: 2rem;
+}
+label{
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+datalist{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+fieldset{
+    padding: 30px;
+    width: 85%;
+
+}
+fieldset legend{
+    font-weight: bold;
+    color: #00796b;
+}
+textarea{
+    width: 90%;
+    height: 7rem;
+}
+#submit{
+    width: 102%;
+    height: 2rem;
+    background-color: #00796b;
+    color: white;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}

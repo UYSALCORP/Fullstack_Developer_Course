@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Rakkas&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+body{
+    background-color: black;
+}
+
+.container {
+    margin: 80px;
+    background-color: rgb(48, 46, 46);
+    border-radius: 10px;
+}
+h1 {
+    text-align: center;
+    font-family: "Lobster", sans-serif;
+    font-weight: 800px;
+    font-size: 60px;
+    font-style: normal;
+    margin-bottom: 20px;
+}
+h4 {
+    color: red;
+    margin: 20px;
+}
+span {
+    color: red;
+}
+#bd {
+    text-align: center;
+    font-size: 10px;
+    margin: 12px 0px;
+}
+.box {
+    background-image:url(stan-lee.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    height: 200px;
+    width: 300px;
+    border-radius: 30px;
+    box-shadow: 2px 20px 300px 50px red;
+}
+.box1 {
+    margin: auto;
+    width: 80%;
+    font-size: 22px;
+    letter-spacing: 3px;
+}
+ul {
+    margin-left: 20px;
+}
+ul li {
+    line-height: 35px;
+    margin-bottom: 20px;
+} 
+.footer {
+    text-align: center;
+    padding: 40px;
+}
+a {
+    border: 3px solid rgb(75, 75, 9);
+    background-color: black;
+    padding: 10px;
+    text-decoration: none;
+}
+a:hover{
+    background-color: rgb(48, 46, 46);
+    color: red;
+}

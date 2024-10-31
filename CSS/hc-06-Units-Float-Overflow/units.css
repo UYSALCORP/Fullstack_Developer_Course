@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body {
+  border: 5px solid red;
+  /* background-color: teal; */
+  height: 100vh;
+}
+
+.abs {
+  background-color: chocolate;
+  width: 10cm;
+  width: 7cm;
+}
+
+.div2 {
+  background-color: blueviolet;
+  width: 50%;
+  height: 20%;
+}
+
+.div3 {
+  background-color: chocolate;
+  width: 50%;
+  height: 70%;
+}
+
+.div4 {
+  background-color: lime;
+  width: 60vw;
+  height: 10vh;
+}
+
+.div5 {
+  font-size: 25px ;
+  font-size: 3rem;
+}
+
+.div6 {
+  font-size: 2em;
+}
+
+.div7 {
+  font-size: 2em;
+}
+
+.div8 {
+    font-size: 25px;
+}
+
+.div9 {
+    font-size: 5rem;
+}
+
+.div10 {
+    font-size: 5rem;
+}
