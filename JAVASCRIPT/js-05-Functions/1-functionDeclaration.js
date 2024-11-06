@@ -6,6 +6,8 @@
 // Function Expression (Fonksiyon İfadesi):
 // Arrow Function (Ok Fonksiyonları):
 
+// ----------------------------------------------------------------------
+// recursive function | IIFE (Immediately Invoked Function Expression) | Callback function
 
 // !-----------------------------------------------------------
 // ! 1.YÖNTEM  : FUNCTION DECLARATION
