@@ -57,3 +57,24 @@ p{
     background-color: var(--lightblue);
     font-size: var(--fontSize1);
 }
+@media screen and (max-width:1200px) {
+    body{
+        background-color: magenta;
+    }
+}
+@media screen and (max-width:768px) {
+    body{
+        background-color: green;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--tema1);
+    }
+}
+@media screen and (max-width:360px) {
+    body{
+        background-color: red;
+    }
+}

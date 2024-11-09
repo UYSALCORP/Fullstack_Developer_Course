@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  /* gap: 1rem; */
+  grid-auto-flow: column;
+}
+
+.content {
+  border: 2px solid;
+  background-color: skyblue;
+  /* box-shadow: 5px 5px 10px black; */
+  /* transition: all 1s; */
+}
+
+/* .content:active{
+    box-shadow: none;
+    background-color: orange;
+    background-image: url("https://picsum.photos/id/774/600/400");
+} */
+
+.content1 {
+  background-color: teal;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end:2 ;
+}
+
+
+.content12{
+    background-color: orangered;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.content2{
+    background-image: url("https://picsum.photos/id/252/600/400");
+    background-size: cover;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start:2 ;
+    grid-row-end: 4;
+
+}
+
+.content3{
+background-color: rgba(255, 0, 255, 0.61);
+grid-column-start: 2;
+grid-column-end: 4;
+grid-row-start:2 ;
+grid-row-end: 4;
+}
+
+.content4{
+    background-color: crimson;
+    grid-column: 1/2;
+    grid-row: 2/5;
+}
+.content7{
+    background-color: olive;
+    grid-column: 4/5;
+    grid-row: 2/5;
+}
+
+.content6{
+    background-color: lime;
+    /* row-start/col-start/row-end/col-end */
+    grid-area: 4/2/6/4;
+}
+.content5{
+    background-color: rgba(0, 0, 205, 0.294);
+    grid-area: 4/3/6/5;
+    z-index: 3;
+}
+.content8{
+    background-color: rgba(255, 0, 0, 0.891);
+    z-index: 4;
+    /* grid-area: 5/1/6/5; */
+    grid-column: 1 / span 4;
+    grid-row: 5/ span 1;
+}
