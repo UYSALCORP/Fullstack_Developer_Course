@@ -183,3 +183,70 @@ console.log(sentence.slice(-9, 14));
 //* includes, indexOf, search, match metodlarını kullanabiliriz.
 
 //! Includes
+// includes() ... yı içeriyor mu? -> true ya da false dönderir. //? caseSensitive 
+let kelime3 = "to be or not To be, That is the question"
+console.log(kelime3.includes("to be")); // True
+console.log(kelime3.includes("TO BE")); // False
+
+// Bir site adresi güvenli mi? https : s -> secure
+let url = "https://clarusway.com"
+let security = url.includes("https") ? "Bu site güvenlidir." : "Bu site güvenli değildir."
+console.log(security);
+
+//! indexOf
+// indexOf(aranacak metin, konum) Bir karakter ya da karakter grubunun kaçıncı sırada oldugunu gösterir. Karakter yoksa -1 dönderir. //? caseSensitive. İlk gördüğü index numarasını verir.
+
+console.log(kelime3.indexOf("Uysal")); // -1
+
+//! Search
+// Bir string içindeki aranan elemanın ilk index numarasını yazar. Bulamazsa -1 dönderir. //? caseSensitive
+console.log(kelime3.search("be"));
+
+//! REGEX- Regular Expression
+// Yazım stili / işaretiyledir.
+// Flags kullanımı: Düzenli ifadelerde çeşitli bayraklar kullanarak aramayı değiştirebiliriz.
+
+// g: global arama, i: büyük/küçük harf duyarsız arama
+let variable = "Uysal Corporation"
+console.log(variable.search(/c/i));
+
+// [A-Z], [a,z], [0-9]
+let kelime4 = "to be or not To be, 20 That is the question"
+console.log(kelime4.search(/[A-Z]/));
+console.log(kelime4.search(/[a-z]/));
+console.log(kelime4.search(/[0-9]/));
+
+// ^ : Olmayan anlamına gelir.
+console.log(kelime4.search(/[^a-z]/));
+
+//! Match
+// Bi dizi içindeki düzenli ifadeye (RegEx) uyan kısımları bulur ve bir dizi olarak dönderir.
+let phone = "My phone number is 535-026-3726"
+let result = phone.match(/\d+/g)
+console.log(result);
+
+// Email Pattern
+let email = "contact us at support@example.com or sales@example.com"
+let emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+let emails = email.match(emailPattern);
+console.log(emails);
+
+//! startsWith(), endsWith() -- caseSensitive
+// ... ile başlıyor mu?, ... ile bitiyor mu? (true, false)
+console.log(phone.startsWith("M"));
+console.log(phone.endsWith("6"));
+
+//! Stringde Değişiklik Yapma
+//! Replace ve ReplaceAll
+let text3 = "Hello World! Who are you? World"
+let newText = text3.replace("World", "HTML-CSS-JS")
+console.log(newText);
+let newTextAll = text3.replaceAll("World", "HTML-CSS-JS")
+console.log(newTextAll);
+
+//! Trim
+// Başta ve Sondaki boşlukları kaldırır.
+let metin2 = "          Clarusway           "
+console.log(metin2);
+let yeniMetin2 = metin2.trim()
+console.log(yeniMetin2);
