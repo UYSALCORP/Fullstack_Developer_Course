@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(https://cdn.pixabay.com/photo/2012/04/10/23/02/turkey-26820_1280.png);
+    background-size: 40px;
+}
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 250px 1fr 4fr 1fr;
+    max-width: 1200px;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header {
+    background-color: teal;
+    grid-column: span 12;
+}
+header img {
+    width: 100%;
+    height: 100%;
+}
+nav {
+    background-color: red;
+    color: white;
+    grid-column: span 12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+aside {
+    background-color: skyblue;
+    grid-column: span 3;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    place-items: center;
+    /* margin: auto; */
+}
+main {
+    /* background-color: orange; */
+    grid-column: span 9;
+    background-image: url(https://cdn.pixabay.com/photo/2012/05/02/21/19/angry-46375_1280.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: yellow;
+    font-size: large;
+    text-shadow: 5px 5px 10px blue;
+}
+footer {
+    background-color: bisque;
+    grid-column: span 12;
+    display: flex;
+}
+
+.tr {
+    background-color: red;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.sp {
+    background-color: white;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
