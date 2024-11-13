@@ -1,0 +1,26 @@
+.yazi {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1.5rem auto;
+    width: 50vw;
+}
+
+/* ! TRANSFORM ROTATE */
+.yazi1{
+    background-color: darkcyan;
+}
+.yazi2{
+    background-color: fuchsia;
+}
+.yazi3{
+    background-color: bisque;
+}
+.yazi4{
+    background-color: crimson;
+}
+.yazi5{
+    background-color: orange;
+}
+.yazi6{
+    background-color: gray;
+}
