@@ -5,22 +5,86 @@
     width: 50vw;
 }
 
-/* ! TRANSFORM ROTATE */
+/* ! TRANSFORM ROTATE | Eksen doğrultusunda döndürür. */
 .yazi1{
     background-color: darkcyan;
+    transform: rotateX(180deg); /* 90deg'den sonra tepe taklak olur. 180deg de tam döner. Cağ kebabı gibi */
 }
 .yazi2{
     background-color: fuchsia;
+    transform: rotateY(55deg);
 }
 .yazi3{
     background-color: bisque;
+    /* transform: rotate(45deg); Saat yönünde döner. -Xdeg ters yönde döner */
+    position: relative;
+    z-index: 2;
 }
+.yazi3:active{
+    background-color: red;
+    transform: rotate(-45deg);
+    transform-origin: left; /* Merkez alacağı yeri seçer. Sol merkez seçti oradan döndürüyor. */
+    transform-origin: 40%;
+}
+
+/* ! TRANSFORM SCALE | Boyutlandırma için kullanılır. */
 .yazi4{
     background-color: crimson;
+    transform: scaleX(1.5); /* X Ekseninde 1.5 kat büyüdü */
 }
 .yazi5{
     background-color: orange;
+    transform: scaleY(2); /* Y Ekseninde 2 kat büyüdü */
 }
 .yazi6{
     background-color: gray;
+    transform: scale(1); /* Her yönden 1 kat büyüdü*/
+}
+.yazi6:active{
+    transform: scale(1.5) rotate(45deg);
+    background-color: goldenrod;
+}
+img{
+    transform: skewX(150deg);
+    /* transform: skew(30deg, 75deg); */
+}
+
+/* ! TRANSLATE | Öteleme hareketi yaptırır. */
+.box {
+    background-color: crimson;
+    width: 100px;
+    height: 50px;
+    margin: 2px;
+    transition: all 2s linear;
+}
+.x {
+    transition-timing-function: cubic-bezier(1,-0.88,0.38,5.17);
+
+}
+.x:active{
+    transform: translateX(350px);
+    background-color: black;
+    color: white;
+}
+.y:active{
+    transform: translateY(52px); /* Özellikle alttaki box'u kapatsın diye 52 yazdım. */
+    background-color: yellowgreen;
+}
+/* ! TRANSITION */
+.xy{
+    transition: all 1s ease-in-out; /* Hareketlendirme, saniye ayarı, ölçekleme*/
+    /* transition-delay: 1s -> Hareketi 1sn gecikmeli başlatır. */
+    /* transition-duration: 1s -> Animasyonun ne kadar sürede yapacağı */
+
+    /* Transition-timing-function : 
+    ease -> Başlangıçta yavaş giderek hızlı
+    linear- -> Sabit bir hızla yap
+    ease-in -> Başlangıçta yavaşla
+    ease-out -> Sonda yavaşla
+    ease-in-ut -> Başta ve sonda yavaşla
+    cubic-bezier(n,n,n,n) -> Özellikleri kendin belirle. */
+}
+.xy:active{
+    transform: translate(103px, -52px); /* - değerler'de verilebilir. Aksi hareketi yapar.*/
+    background-color: chocolate;
 }
