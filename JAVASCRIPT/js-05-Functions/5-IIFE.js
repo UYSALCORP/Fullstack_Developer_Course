@@ -23,3 +23,15 @@ topla(); // invoke - call
 })(4,2);
 
 // Değişken Kapsülleme
+
+const veri = (function(){
+    const sifre="12345"
+    return {
+        sifreGoster:function(){
+            return sifre;
+        }
+    }
+})()
+console.log(veri.sifreGoster());
+
+// Kapsülleme Faydaları; Güvenlik, Veri Gizliliği, Kontrollü Erişim
