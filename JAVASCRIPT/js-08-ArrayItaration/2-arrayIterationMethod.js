@@ -242,3 +242,9 @@ const bigger = yaslar.find((yas)=>yas > 30)
 console.log("Yası 30'dan büyük olan ilk kişi",bigger,"yaşında");
 const biggest = yaslar.findLast((yas)=> yas > 30)
 console.log("Yaşı 30'dan büyük olan son kişi", biggest,"yasında");
+
+// Flat yapısı
+const arr1= [1,2,[3,4],[5,6,7]]
+// Flat yapısı nested arrayi tek boyutlu arraye donusturur
+const flatArr=arr1.flat()
+console.log(flatArr);
