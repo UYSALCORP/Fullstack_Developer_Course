@@ -29,3 +29,4 @@ console.log(values);
 //! Object.Entries
 const degerler = Object.entries(employeeList);
 console.log(degerler);
+
