@@ -39,6 +39,44 @@
         </div>
     </div>
 
+    <!-- RESPONSIVE -->
+     <div class="container mt-5">
+        <div class="row border border-5 border-danger justify-content-center">
+            <div class="col-12 col-md-6 col-xl-4 bg-primary">
+                <h1>Lorem ipsum dolor sit.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure itaque nemo nihil blanditiis ad tempore velit ipsam est magnam ex incidunt dolor eos obcaecati, dolorem nesciunt ratione molestiae deserunt iusto.</p>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 bg-warning">
+                <h1>Lorem ipsum dolor sit.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure itaque nemo nihil blanditiis ad tempore velit ipsam est magnam ex incidunt dolor eos obcaecati, dolorem nesciunt ratione molestiae deserunt iusto.</p>
+            </div>
+            <div class="col-12 d-block d-sm-none d-md-block col-xl-4 bg-danger">
+                <h1>Lorem ipsum dolor sit.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure itaque nemo nihil blanditiis ad tempore velit ipsam est magnam ex incidunt dolor eos obcaecati, dolorem nesciunt ratione molestiae deserunt iusto.</p>
+            </div>
+        </div>
+     </div>
+
+     <!-- 
+      Sadece xs ekranlarda gözükecek bir element tasarlayınız.
+      Sadece xs ekranlarda gözükmeyecek bir element tasarlayınız.
+      Sadece md ekranlarda gözükecek bir element tasarlayınız.
+      Sadece md ekranlarda gözükmeyecek bir element tasarlayınız.
+      Sadece md+ ekranlarda gözükecek bir element tasarlayınız.
+       -->
+
+       <div class="container mt-5">
+        <div class="row">
+            <div class="col bg-secondary d-block d-sm-none">Sadece xs'de Gözük</div>
+            <div class="col bg-secondary d-none d-sm-block"> sadece xs'de gözükme</div>
+            <div class="col bg-danger d-none d-md-block d-lg-none">md'de görünecek</div>
+            <div class="col-12 bg-primary d-md-none d-lg-block">md ekranlarda gözükme</div>
+            <div class="col-12 d-none d-md-block bg-primary">Md+ sonra gözük</div>
+        </div>
+       </div>
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
