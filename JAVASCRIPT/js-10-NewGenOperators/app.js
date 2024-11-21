@@ -261,3 +261,10 @@ console.clear();
   for (const v of Object.values(sahislar)){
     console.log(v.name);
   }
+
+
+  let object = { "myName" : "Anthony", "myAge" : 30};
+  let object2 = { "myAge" : 675}
+  let newObject = {...object, ...object2}
+
+  console.log(newObject);
