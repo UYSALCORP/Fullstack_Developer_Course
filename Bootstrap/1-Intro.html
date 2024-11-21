@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap Intro</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+        /* Bootstrap'i ezmek istiyorsan bs linkinin altında style veya harici dosya açman lazım */
+        /* Ve !important olması lazım */
+        .custom{
+            background-color: bisque !important;
+            color: crimson !important;
+        }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center bg-danger text-light p-3 custom">Intro!</h1>
+    <p class="h1 text-start m-5">Lorem ipsum dolor sit amet.</p>
+    <p class="h2 text-center">Lorem ipsum dolor sit amet.</p>
+    <p class="h3 text-end">Lorem ipsum dolor sit amet.</p>
+    <p class="h4 w-25 m-auto bg-success-subtle text-center">Lorem ipsum dolor sit amet.</p>
+    <p class="h5">Lorem ipsum dolor sit amet.</p>
+    <p class="h6">Lorem ipsum dolor sit amet.</p>
+
+    <p class="display-1 text-decoration-underline bg-warning">Lorem ipsum dolor sit amet.</p>
+    <p class="display-2 text-decoration-line-through bg-primary">Lorem ipsum dolor sit amet.</p>
+    <p class="display-3 text-decoration-none bg-success">Lorem ipsum dolor sit amet.</p>
+    <p class="display-4 text-lowercase bg-secondary">Lorem ipsum dolor sit amet.</p>
+    <p class="display-5 text-capitalize bg-info">Lorem ipsum dolor sit amet.</p>
+    <p class="display-6 text-uppercase bg-dark text-white">Lorem ipsum dolor sit amet.</p>
+
+    <p class="lh-lg mx-4"><span class="fs-1">Lorem</span> ipsum, dolor sit amet <span class="fs-2 bg-danger">consectetur</span>  adipisicing elit. Veritatis, quia!</p>
+        <!-- Text-muted -> Yazıyı biraz soluklaştırır.lead: yazıyı bir miktar büyütür -->
+    <p class="fw-bolder"><span class="text-muted">Lorem ipsum, dolor sit amet</span> consectetur adipisicing elit. Iste deleniti, <span class="lead fst-italic">consequatur aspernatur porro</span> eos autem nisi dicta quam nesciunt similique minima minus dolorem, cupiditate aperiam quibusdam vel fuga, molestiae suscipit?</p>
+
+    <figure>
+        <blockquote class="blockquote">
+            <p>Yakarsa Dünyayı Garipler Yakar</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            Baba <cite title="Baba">Müslüm Gürses</cite>
+        </figcaption>
+    </figure>
+        <!-- height yüksekliği vermek için parentinin bi yüksekliği olması gerekir.-->
+    <div class="bg-secondary" style="height: 10vh;">
+        <p class="bg-danger w-25 mx-auto h-100 border border-5 border-warning rounded-pill d-flex justify-content-center align-items-center">Danger</p>
+    </div>
+
+
+
+
+
+
+    <script>
+      src="http6://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    </script>
+  </body>
+</html>
