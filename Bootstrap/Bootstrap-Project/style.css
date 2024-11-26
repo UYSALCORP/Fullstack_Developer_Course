@@ -11,6 +11,11 @@
     font-family: "Plus Jakarta Sans", sans-serif;
 }
 /* ! NAVBAR */
+.navbar{
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+}
 .navbar .container{
     background-color: rgba(0, 0, 0, 0.712);
     text-transform: capitalize;
@@ -41,4 +46,57 @@
 .carousel-caption .btn:first-child:hover {
     background-color: white;
     color: black;
+}
+.carousel-item {
+    height: 100vh;
+}
+.carousel-item img{
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-caption {
+    bottom: 40%;
+}
+.hero {
+    position: relative;
+    z-index: 3;
+}
+.black{
+    background-color: rgba(0, 0, 0, 0.664);
+    width: 450px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(50deg);
+}
+.carousel-indicators button {
+    background-color: var(--primary-color) !important;
+    padding: 0.1rem !important;
+    width: 3rem !important;
+}
+
+/* ! ABOUT */
+
+section#about{
+    background-color: var(--secondary-color);
+    color: white;
+    /* height: 100vh; */
+}
+.image-container {
+    position: relative;
+}
+.image-container img{
+    width: 100%;
+}
+.about-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(188,108,37,0.5));
+}
+section#about .btn {
+    background-color: var(--primary-color);
 }
