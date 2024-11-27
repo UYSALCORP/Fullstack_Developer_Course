@@ -51,16 +51,31 @@ arrAllLi.forEach((li)=>li.style.color="red")
 
 //! 2.Yöntem | Array.from()
 Array.from(allLi).map((li)=>li.style.backgroundColor="black")
-
-
 //*===========================================
 //*          GETELEMENTSBYCLASSNAME()
 //*===========================================
 
+const myList = document.getElementsByClassName("list")
+console.log(myList);
+
+document.getElementsByClassName("item-list")[0].style.color = "hotpink"
+
 //* ==========================================
 //*              QUERYSELECTOR()
 //* ==========================================
-
+//! Akışta gördüğü ilk elemanı seçer. id,tag,class vs. secilebilir.
+console.log(document.querySelector("#btn")); // ID Selector.
+console.log(document.querySelector(".item-list")); // Class Selector.
+console.log(document.querySelector("li")); // Tag Selector. İlk gördüğü li tagını seçti.
+const myH3 = document.querySelector("main section.item-list h3")
+console.log(myH3);
+const myLi = document.querySelector(".item-list ul li:nth-child(3)")
+console.log(myLi);
+myLi.style.backgroundColor = "darkgray"
 //* ==========================================
 //*              QUERYSELECTORALL()
 //* ==========================================
+//! NodeList döndürür. Dahili olarak forEach metodu'nu barındırır.
+const liste = document.querySelectorAll(".item-list .list")
+console.log(liste); // NodeList
+liste.forEach((li)=>console.log(li.innerText));
