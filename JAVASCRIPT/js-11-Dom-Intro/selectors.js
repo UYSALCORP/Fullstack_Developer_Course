@@ -40,6 +40,19 @@ addBtn.value = "Submit"
 //*          GETELEMENTSBYTAGNAME()
 //*===========================================
 
+const allLi = document.getElementsByTagName("li")
+console.log(allLi); // HTMLCollection, array-like
+console.log(allLi[0].textContent);
+allLi[2].textContent= "Javascript ile Munerstack"
+// allLi.forEach((li) => {console.log(li);}); //? array-like'da array methodları kullanılmaz. Kullanmak için,
+//! 1.Yöntem | Spread
+const arrAllLi = [...allLi]
+arrAllLi.forEach((li)=>li.style.color="red")
+
+//! 2.Yöntem | Array.from()
+Array.from(allLi).map((li)=>li.style.backgroundColor="black")
+
+
 //*===========================================
 //*          GETELEMENTSBYCLASSNAME()
 //*===========================================
