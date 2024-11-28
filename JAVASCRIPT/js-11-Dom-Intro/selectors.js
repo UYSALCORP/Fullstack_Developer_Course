@@ -45,6 +45,11 @@ console.log(allLi); // HTMLCollection, array-like
 console.log(allLi[0].textContent);
 allLi[2].textContent= "Javascript ile Munerstack"
 // allLi.forEach((li) => {console.log(li);}); //? array-like'da array methodları kullanılmaz. Kullanmak için,
+//! Toplu bir şekilde erişim için for of yapısı da kullanılabilir.
+for (const li of allLi) {
+    console.log(li.textContent);
+}
+
 //! 1.Yöntem | Spread
 const arrAllLi = [...allLi]
 arrAllLi.forEach((li)=>li.style.color="red")
