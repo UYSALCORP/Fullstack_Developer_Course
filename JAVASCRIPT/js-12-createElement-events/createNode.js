@@ -36,3 +36,17 @@ newLi2.setAttribute("class", "list border border-danger border-3") // Bootstrap 
 newLi2.setAttribute("id", "new-li2")
 
 console.log(newLi2.getAttribute("id"));
+
+//? 3- classList | Mevcut classları değiştirmeden üstüne ekleyebiliriz. | add(), remove(), toggle()
+newLi.classList.add("text-center", "border", "border-primary") // yeni classlar ekledim.
+newLi.classList.remove("text-center") // text-center classını çıkardım.
+newLi.classList.toggle("text-center") // toggle() -> Class varsa çıkar; yoksa ekle
+
+//* Yeni bir element oluşturma | innerHTML
+document.querySelector("main").innerHTML += 
+`
+<div>
+    <input type="text" class="my-input"/>
+    <button class="btn btn-danger"> Submit </button>
+</div>
+`
