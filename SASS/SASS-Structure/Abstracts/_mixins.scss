@@ -1,0 +1,12 @@
+// ! MIXINS
+
+@mixin myBox($parametre1, $parametre2) {
+    background-color: $parametre1;
+    width: 25%;
+    height: 15rem;
+    border-radius: 1rem;
+    color: $parametre2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
