@@ -11,6 +11,8 @@ $font-size: 1.2rem;
 $font-color: #333;
 $nav-bg-color: #007bff;
 $my-border: 2px solid #ddd;
+$banner-bg-color: #0056b3;
+$button-bg-color: #28a745;
 
 body {
     background-color: $bg-color;
@@ -18,7 +20,7 @@ body {
     font-size: $font-size;
     color: $font-color;
 }
-
+// ! HEADER
 header {
     background-color: $nav-bg-color;
     display: flex;
@@ -45,6 +47,40 @@ header {
             text-decoration: none;
             &:hover {
                 color: $font-color;
+            }
+        }
+    }
+}
+
+//! BANNER
+.banner {
+    background-color: $banner-bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    line-height: 1.5;
+
+    img{
+        width: 30%;
+        max-width: 400px;
+        min-width: 200px;
+    }
+    aside{
+        button{
+            background-color: $button-bg-color;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            margin-top: 1rem;
+            margin-left: 0.5rem;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            &:hover{ // & -> Ampersant bu işaretin adı
+                background-color: darken($button-bg-color, 10%);
+                cursor: pointer;
+                transform: scale(0.95);
             }
         }
     }

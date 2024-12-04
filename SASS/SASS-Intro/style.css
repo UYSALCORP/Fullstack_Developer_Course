@@ -42,4 +42,34 @@ header ul a:hover {
   color: #333;
 }
 
+.banner {
+  background-color: #0056b3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  color: white;
+  line-height: 1.5;
+}
+.banner img {
+  width: 30%;
+  max-width: 400px;
+  min-width: 200px;
+}
+.banner aside button {
+  background-color: #28a745;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.banner aside button:hover {
+  background-color: rgb(30.1449275362, 125.8550724638, 52);
+  cursor: pointer;
+  transform: scale(0.95);
+}
+
 /*# sourceMappingURL=style.css.map */
