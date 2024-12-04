@@ -85,3 +85,34 @@ header {
         }
     }
 }
+
+// ! MIXINS
+
+@mixin myBox($parametre1, $parametre2) {
+    background-color: $parametre1;
+    width: 25%;
+    height: 15rem;
+    border-radius: 1rem;
+    color: $parametre2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+display: flex;
+gap: 1rem;
+padding: 1rem;
+}
+.card1{
+    @include myBox(green, black)
+}
+.card2{
+    @include myBox(red, white);
+}
+.card3{
+    @include myBox(yellow, blue)
+}
+.card4{
+    @include myBox(blue, yellow)
+}

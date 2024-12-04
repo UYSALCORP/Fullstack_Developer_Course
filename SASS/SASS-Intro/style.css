@@ -72,4 +72,54 @@ header ul a:hover {
   transform: scale(0.95);
 }
 
+.cards {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card1 {
+  background-color: green;
+  width: 25%;
+  height: 15rem;
+  border-radius: 1rem;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card2 {
+  background-color: red;
+  width: 25%;
+  height: 15rem;
+  border-radius: 1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card3 {
+  background-color: yellow;
+  width: 25%;
+  height: 15rem;
+  border-radius: 1rem;
+  color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card4 {
+  background-color: blue;
+  width: 25%;
+  height: 15rem;
+  border-radius: 1rem;
+  color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=style.css.map */
