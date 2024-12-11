@@ -16,12 +16,15 @@
 
 //! JavaScript catch anahtar kelimesi çalışma zaman hatası sonucu oluşan hataları ekrana yazdırmak için kullanılır.
 
-//! JavaScript throw anahtar kelimesi özel hata oluşturmayı sağlar.
+//! JavaScript throw anahtar kelimesi "özel hata" oluşturmayı sağlar.
 
 //! JavaScript finally anahtar kelimesi hata oluşması veya oluşmaması durumunda (her durumda) çalışacak kodları yazdırmak için kullanılır.
 
 const getData =async()=>{
    const res = await fetch("https://api.tvmaze.com/search/shows?q=girls")
+   if (res.ok){
+    throw new Error("URL'de Hata Var!")
+    }
    const data =await res.json()
 
    ekranaBastir(data)
