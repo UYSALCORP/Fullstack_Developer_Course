@@ -18,19 +18,19 @@
 - First time used in Facebook Feed
 - React was released first in 2013
 
- # Why React?
- ## React Features
- ### JSX:
+ ## Why React?
+ ### React Features
+ #### JSX:
  - Javascript Syntax Entension. It's not necessary to use but it's recommended
- ### Components:
+ #### Components:
  - React is all about components. You need to think everything as a component.
- ### Unidirectional Data Flow and Flux: 
+ #### Unidirectional Data Flow and Flux: 
  - React, implements one-way-data flow
  - Flux is a pattern that helps to keep your data unidirectional.
- ### License:
+ #### License:
  - React is licensed under the Facebook Inc.
 
  ## React Advantages
  - Uses "Virtual DOM" -> faster than regular DOM
- - Can bu used on "client" and "server-side" as well as with other frameworks.
+ - Can be used on "client" and "server-side" as well as with other frameworks.
  - Component and Data Patterns improve "Readability
