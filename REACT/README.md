@@ -22,7 +22,7 @@
  ## React Features
  ### JSX:
  - Javascript Syntax Entension. It's not necessary to use but it's recommended
- ### Components: (Bileşen, Öğe, Parça, Eleman)
+ ### Components:
  - React is all about components. You need to think everything as a component.
  ### Unidirectional Data Flow and Flux: 
  - React, implements one-way-data flow
