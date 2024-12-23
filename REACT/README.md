@@ -4,11 +4,11 @@
 * npx always uses the latest version. npm does not.
 - npm start. ( If you're not at same directory cd project-name/ )
 
-### Structure
+## Structure
 - node_modules: This is where packages installed.
 - public: is where static files live in.
 - src: is where your dynamic files reside.
-## For the project to build, these files must exist with exact filenames
+### For the project to build, these files must exist with exact filenames
 - public/index.html
 - src/index.js ( is the JS entry point. )
 
@@ -18,16 +18,16 @@
 - First time used in Facebook Feed
 - React was released first in 2013
 
- ### Why React?
+ # Why React?
  ## React Features
- # JSX:
+ ### JSX:
  - Javascript Syntax Entension. It's not necessary to use but it's recommended
- # Components: (Bileşen, Öğe, Parça, Eleman)
+ ### Components: (Bileşen, Öğe, Parça, Eleman)
  - React is all about components. You need to think everything as a component.
- # Unidirectional Data Flow and Flux: 
+ ### Unidirectional Data Flow and Flux: 
  - React, implements one-way-data flow
  - Flux is a pattern that helps to keep your data unidirectional.
- # License:
+ ### License:
  - React is licensed under the Facebook Inc.
 
  ## React Advantages
