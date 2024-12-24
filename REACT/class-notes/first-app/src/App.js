@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+import helloreact from './assets/react.png'
 import './App.css';
+import Header from './components/header';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header></Header>
+      <h1>React First-class</h1>
+      <p>Merhaba React!</p>
+      <img src={helloreact}className="hello-picture"></img>
     </div>
   );
 }
