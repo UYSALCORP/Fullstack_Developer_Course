@@ -1,3 +1,4 @@
+import Footer from './components/Footer';
 import Header from './components/Header'
 
 //? Ayrı dosyaya taşıdık.
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
       <h1> React - 02 - Components and JSX </h1>
       <Header></Header>
+      <Footer></Footer>
     </div>
   );
 }
