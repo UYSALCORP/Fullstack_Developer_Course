@@ -1,7 +1,7 @@
 ## How to install react
 - You should first download and install Node.js
 - npx create-react-app project-name (.)
-- yarn create-react-app (faster than npx)
+- yarn create react-app (faster than npx) (first install yarn)
 * npx always uses the latest version. npm does not.
 - npm start. ( If you're not at same directory cd project-name/ )
 
@@ -23,6 +23,9 @@
  ### React Features
  #### JSX:
  - Javascript Syntax Entension. It's not necessary to use but it's recommended. In your project you don't need to use DOM, directly using html codes to running javascript codes.
+ - Modules must start with Capital letter. Use camelCase
+ - Every return must have a parent element. 2 sibling element cant run codes without a parent element.
+ - this element also can be <> (React Fragment). <div> adds a block element on dom. u can use <> for inline elements.
  #### Components:
  - React is all about components. You need to think everything as a component.
  #### Unidirectional Data Flow and Flux: 
