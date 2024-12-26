@@ -3,7 +3,7 @@
 - npx create-react-app project-name (.)
 - yarn create react-app (faster than npx) (first install yarn)
 * npx always uses the latest version. npm does not.
-- npm start. ( If you're not at same directory cd project-name/ )
+- npm start or yarn start. ( If you're not at same directory cd project-name/ )
 
 ## Structure
 - node_modules: This is where packages installed.
@@ -38,3 +38,9 @@
  - Uses "Virtual DOM" -> faster than regular DOM
  - Can be used on "client" and "server-side" as well as with other frameworks.
  - Component and Data Patterns improve "Readability
+
+ ## Props vs State
+ - Props: Get passed to the component, Function parameters, Immutable
+ * props - functional components, this.props - class components
+- State: Manages within the component, Variables declared in the function body, Mutable(can be changed)
+* useState Hook - Functional components, this.state - Class components
