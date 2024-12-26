@@ -5,7 +5,7 @@ function App() {
   console.log(data);
   return (
     <div className="App">
-      <h1> LANGUAGES </h1>
+      <h1> LANGUAGES: </h1>
       {/* //! Rendering Lists */}
       {/* //* Each child in a list should hava aunique "key" prop. */}
       {/* //* Birden fazla statement kullanılacaksa fonk {} içinde yazılmalı ve return keywordu kullanılması gerekir. */}

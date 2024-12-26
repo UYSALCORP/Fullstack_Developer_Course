@@ -1,0 +1,23 @@
+.btn {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 8px;
+    width: 5rem;
+    border: none;
+    margin: 5px;
+    font-weight: 700;
+}
+
+.btn-blue{
+    background-color: navy;
+    color: yellow;
+}
+
+.btn-yellow{
+    background-color: yellow;
+    color: navy;
+}
+
+.wrapper {
+    text-align: center;
+}
