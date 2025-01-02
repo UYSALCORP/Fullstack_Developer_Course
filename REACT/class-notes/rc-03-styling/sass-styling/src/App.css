@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  background-color: rgba(255, 228, 196, 0.466);
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.hello-picture {
+  width: 30%;
+  height: 30%;
+  margin: 30px;
+}
+
+h1{
+  margin-top: 50px;
+  color: crimson;
+}
+
+p {
+  font-weight: bolder;
+}
