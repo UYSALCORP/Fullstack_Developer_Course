@@ -6,11 +6,18 @@ import { doctorData, hastaData } from "../helper/Data"
 
 const Home = () => {
 
-  let [doctors, setDokctors] = useState(doctorData)
+  let [doctors, setDoctors] = useState(doctorData)
   const [hastalar, setHastalar] = useState(hastaData)
 
+  const [magic, setMagic] = useState(true)
+
+  const doctorClick = (dId) => {
+    setDoctors(doctors.filter((a)=>a.id === dId))
+    setMagic(false)
+  }
+
   return (
-    <div style={{ display: "block" }}>
+    <div style={{ display: magic ? "block" : "flex" }}>
       <div>
         <header>
           <h1>HOSPITAL</h1>
@@ -23,19 +30,19 @@ const Home = () => {
                 height="150px"
                 className="doctorBtn"
                 alt=""
-                style={{backgroundColor:"aqua"}}
+                style={{backgroundColor: magic ? "aqua" : "lightGreen" }}
+                onClick={()=>doctorClick(dr.id)}
               />
-              <h4 style={{background:"aqua", borderLeft:"10px solid blue"}}>{dr.doctorName}</h4>
+              <h4 style={{ background: magic ? "aqua": "lightGreen", borderLeft:`10px solid ${magic ? "blue" : "green" }`}}>{dr.doctorName}</h4>
             </div>
             ))}
             
           </div>
         </header>
-
-        {/* <AddPatient /> */}
+            {!magic && <AddPatient/>}
       </div>
 
-      <PatientList hastalar={hastalar}/>
+      <PatientList hastalar={hastalar} setHastalar={setHastalar}/>
     </div>
   );
 };
