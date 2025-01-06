@@ -6,6 +6,7 @@
   padding: 0;
 }
 h1 {
+  text-align: center;
   color: #ed5252;
   font-weight: 900;
   margin-bottom: 30px;
@@ -28,7 +29,6 @@ body {
 }
 
 .header {
-  text-align: center;
   margin: 1rem;
 }
 /* doktor resimleri  */

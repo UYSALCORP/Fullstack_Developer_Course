@@ -1,32 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 
 import PatientList from "../components/PatientList";
 import AddPatient from "../components/AddPatient";
+import { doctorData, hastaData } from "../helper/Data"
 
 const Home = () => {
+
+  let [doctors, setDokctors] = useState(doctorData)
+  const [hastalar, setHastalar] = useState(hastaData)
+
   return (
     <div style={{ display: "block" }}>
       <div>
         <header>
           <h1>HOSPITAL</h1>
           <div className="dr">
-            <div>
+            {doctors.map((dr)=>(
+              <div>
               <img
-                src=""
+                src={dr.doctorImg}
                 width="180px"
                 height="150px"
                 className="doctorBtn"
                 alt=""
+                style={{backgroundColor:"aqua"}}
               />
-              <h4>{}</h4>
+              <h4 style={{background:"aqua", borderLeft:"10px solid blue"}}>{dr.doctorName}</h4>
             </div>
+            ))}
+            
           </div>
         </header>
 
-        <AddPatient />
+        {/* <AddPatient /> */}
       </div>
 
-      <PatientList />
+      <PatientList hastalar={hastalar}/>
     </div>
   );
 };
