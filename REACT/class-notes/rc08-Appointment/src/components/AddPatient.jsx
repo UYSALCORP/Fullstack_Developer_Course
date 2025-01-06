@@ -8,6 +8,7 @@ const AddPatient = ({hastalar, setHastalar, doctors}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    // hastalar dizisinin diğer 6 elemanı dursun, 7. yi ekle işlemini ... ile yapıyoruz, uuid() bize unique id veren bir kütüphane
     setHastalar([...hastalar, {
       id:uuid,
       patientName:isim,

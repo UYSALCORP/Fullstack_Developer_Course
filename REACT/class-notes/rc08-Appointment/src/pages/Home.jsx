@@ -11,10 +11,13 @@ const Home = () => {
 
   const [magic, setMagic] = useState(true)
 
+  //doktor resmi tıklandığında, doktor dizisi teke (tıklanan doktorla) düşmeli, magic ile stil değişeceği için magic false olmalı, hastalar dizisi, tek kalan doktorun hastaları olmalı
   const doctorClick = (dId) => {
+    //! tamircilerde(set) sıralama önemliyse,(doctors dizisinin tek elemana düşmesi önce olmalı) ilk olmasını istediğimizi, önce kendisine atayıp sonra tamircinin içine yazmalıyız. yoksa hata alırız
     doctors = doctors.filter((a)=>a.id === dId)
     setDoctors(doctors)
     setMagic(false)
+    // hastalar dizisini, üstte tek kalan doktor dizisindeki doktorla uyuşan hastalarla güncelledik
     setHastalar(hastalar.filter((a)=>a.myDoctor===doctors[0].doctorName))
   }
 
@@ -41,6 +44,7 @@ const Home = () => {
             
           </div>
         </header>
+        {/* //* magic false ise (doktor dizisi tek elemanlıysa), AddPatient comp. görünsün. hasta ekleyeceğimiz için hastalar ve tamircisi, doktor adıyla kayıt yapılacağı için doctors dizisini yolladık */}
             {!magic && <AddPatient hastalar={hastalar} setHastalar={setHastalar} doctors={doctors}/>}
       </div>
 
