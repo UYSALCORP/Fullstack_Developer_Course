@@ -1,0 +1,51 @@
+import { useState } from "react";
+
+const AddTutorial = () => {
+  const [title, setTitle] = useState("")
+  const [desc, setDesc] = useState("")
+
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    console.log(title, desc)
+    // postTutorial(title, desc)
+  }
+
+  return (
+    <div className="container text-center mt-4">
+      <h1 className="display-6 text-danger">Add Your Tutorial</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            Title
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e)=>setTitle(e.target.value)}
+            id="title"
+            placeholder="Enter your title"
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
+            Description
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e)=>setDesc(e.target.value)}
+            id="desc"
+            placeholder="Enter your Description"
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-danger mb-4">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default AddTutorial;
