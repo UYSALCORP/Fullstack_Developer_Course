@@ -1,14 +1,27 @@
+import axios from "axios";
 import { useState } from "react";
 
-const AddTutorial = () => {
-  const [title, setTitle] = useState("")
-  const [desc, setDesc] = useState("")
+const AddTutorial = ({ getTutorials }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    console.log(title, desc)
-    // postTutorial(title, desc)
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(title, description);
+    postTutorial({ title, description });
+    setTitle("")
+    setDescription("")
+  };
+
+  const postTutorial = async (newTutorial) => {
+    try {
+      await axios.post(process.env.REACT_APP_URL, newTutorial);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      getTutorials();
+    }
+  };
 
   return (
     <div className="container text-center mt-4">
@@ -21,7 +34,8 @@ const AddTutorial = () => {
           <input
             type="text"
             className="form-control"
-            onChange={(e)=>setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
             id="title"
             placeholder="Enter your title"
             required
@@ -34,7 +48,8 @@ const AddTutorial = () => {
           <input
             type="text"
             className="form-control"
-            onChange={(e)=>setDesc(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
             id="desc"
             placeholder="Enter your Description"
             required
