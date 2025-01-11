@@ -10,7 +10,10 @@ const ContactForm = () => {
   //?dest
   const { isim, password, email } = person;
 
- 
+  const getDatabase = (e) =>{
+    e.preventDefault()
+    alert({isim, email})
+  }
 
  
 
@@ -21,7 +24,7 @@ const ContactForm = () => {
 
       <h1>FORM(EVENTS)</h1>
 
-      <form >
+      <form onSubmit={getDatabase}>
         <div className="mb-3">
           <label className="form-label" htmlFor="isim">
             NAME: <span className="text-danger">{isim} </span>
@@ -31,7 +34,7 @@ const ContactForm = () => {
             id="isim"
             type="text"
             name="isim"
-          
+            onInput={(e)=>setPerson({...person, [e.target.id]:e.target.value})}
             value={isim}
           />
         </div>
@@ -44,7 +47,7 @@ const ContactForm = () => {
             id="password"
             name="password"
             type="password"
-          
+            onInput={(e)=>setPerson({...person, [e.target.id]:e.target.value})}
             value={password}
           />
         </div>
@@ -56,7 +59,7 @@ const ContactForm = () => {
           <input
             type="email"
             className="form-control"
-        
+            onInput={(e)=>setPerson({...person, [e.target.id]:e.target.value})}
             value={email}
             id="email"
             name="email"

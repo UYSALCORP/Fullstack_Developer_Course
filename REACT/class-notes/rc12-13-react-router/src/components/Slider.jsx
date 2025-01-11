@@ -1,30 +1,21 @@
 import React from 'react'
+import "./app.css"
 import {Carousel} from "react-bootstrap"
+import isa from "../img/isa.jpeg"
+import devops from "../img/devops.jpeg"
+import about from "../img/about.jpeg"
+
 const Slider = () => {
   return (
     <Carousel>
       <Carousel.Item>
-       <img src="" alt="" />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+       <img src={isa} alt="" />
       </Carousel.Item>
       <Carousel.Item>
-     <img src="" alt="" />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
+     <img src={devops} alt="" />
       </Carousel.Item>
       <Carousel.Item>
-       <img src="" alt="" />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
+       <img src={about} alt="" />
       </Carousel.Item>
     </Carousel>
   );

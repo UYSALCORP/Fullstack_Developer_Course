@@ -1,5 +1,9 @@
 
-.carousel  .carousel-indicators button {
+.carousel .carousel-indicators button {
 background-color: red;
 
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    background-color: red;
 }
