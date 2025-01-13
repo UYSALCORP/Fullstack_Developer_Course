@@ -6,7 +6,7 @@ const FS = () => {
         Become a software and application developer, well-equipped with both
         front-end and back-end.
       </p>
-      <img
+      <img className="w-100"
         src="https://clarusway.com/wp-content/uploads/elementor/thumbs/v1-Fullstack-developer-pqnf31gbxlt9gholzgwtsxya1abhwiwulezoqna3wo.jpg"
         alt=""
       />

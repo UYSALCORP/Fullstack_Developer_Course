@@ -1,6 +1,7 @@
-
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Paths = () => {
+  const navigate = useNavigate();
   return (
     <div className="container mt-4">
       <h1>
@@ -13,22 +14,24 @@ const Paths = () => {
         FOR YOU Upgrade your career with the best online training led by top IT
         experts!
       </p>
-      <div >
-        <button className="btn btn-success w-25" >
-          FS
+      <div>
+        <button
+          className="btn btn-success w-25"
+          onClick={() => navigate("/paths/fs")}
+        >
+          Fullstack
         </button>
 
-        <button className="btn btn-danger w-50" >
-          ana sayfa
-        </button>
+        <button className="btn btn-danger w-50">Home</button>
         <button
           className="btn btn-warning w-25"
-      
+          onClick={() => navigate("/paths/aws")}
         >
-          Aws-Devops
+          Aws-Dev
         </button>
       </div>
-
+      {/* nested route ile sayfa içinde sayfa açacaksak buraya Outlet comp. yazmalıyız */}
+      <Outlet />
     </div>
   );
 };

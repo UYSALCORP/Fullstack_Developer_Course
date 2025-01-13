@@ -55,7 +55,7 @@ const MyNavbar = () => {
                 color: isActive && "red",
               })}
               className="nav-link"
-              to="/path"
+              to="/paths"
             >
               Paths
             </NavLink>
