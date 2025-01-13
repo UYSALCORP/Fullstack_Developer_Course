@@ -1,12 +1,20 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 const TeacherDetails = () => {
   //! Kısa Yol
-  const {state:{kisi}} = useLocation()
+  // const {state:{kisi}} = useLocation()
+  //! Uzun Yol
+  const { id } = useParams();
+  const [kisi, setKisi] = useState({});
+
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then((res) => res.json())
+      .then((data) => setKisi(data));
+  }, [id]);
 
   return (
-  
     <div className="container text-center mt-4">
       <div>
         <img
@@ -21,15 +29,11 @@ const TeacherDetails = () => {
         <h5>{kisi.email} </h5>
       </div>
       <div>
-        <button className="btn btn-warning" >
-          GO BACK
-        </button>
-        <button className="btn btn-primary" >
-          GO HOME
-        </button>
+        <button className="btn btn-warning">GO BACK</button>
+        <button className="btn btn-primary">GO HOME</button>
       </div>
     </div>
   );
-}
+};
 
-export default TeacherDetails
+export default TeacherDetails;
