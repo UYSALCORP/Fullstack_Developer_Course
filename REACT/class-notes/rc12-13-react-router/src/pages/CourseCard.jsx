@@ -1,9 +1,12 @@
 import React from "react";
 import data from "../data.js";
 import { Container, Col, Card, Row, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 const CourseCard = () => {
   //!react-bootstrap ten CourseCard componenti
   //!
+
+  const navigate = useNavigate()
   return (
     <Container className="text-center">
       <Row>
@@ -20,6 +23,9 @@ const CourseCard = () => {
                   <Card.Title>{a.name}</Card.Title>
                   <Card.Text>{a.text}</Card.Text>
                   <Button variant="danger"
+                  // onClick={()=>navigate(`/courses/${a.name}`)}
+                  // //! 2.Yol | Kısa Yol
+                  onClick={()=>navigate(`/courses/${a.name}`,{state:{a}})}
                  >
                     DETAILS
                   </Button>

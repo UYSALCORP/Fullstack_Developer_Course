@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ContactForm from "../pages/ContactForm";
 import NotFound from "../pages/NotFound";
 import Paths from "../pages/Paths";
+import CardDetails from "../pages/CardDetails";
+import TeacherDetails from "../pages/TeacherDetails";
 
 const AppRouter = () => {
   return (
@@ -18,7 +20,10 @@ const AppRouter = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/teacher" element={<Teacher />} />
+        <Route path="/teacher/:id" element={<TeacherDetails />} />
         <Route path="/courses" element={<CourseCard />} />
+        <Route path="/courses/:name" element={<CardDetails />} />
+
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/path" element={<Paths />} />
         <Route path="*" element={<NotFound />} />
