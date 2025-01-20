@@ -15,6 +15,8 @@ export const AboutContainer = styled.div`
     color: orange;
     font-family: "Girassol", sans-serif;
     font-size: 3rem;
+    display: flex;  
+    justify-content: center;
   }
 `;
 export const StyledImage = styled.img`

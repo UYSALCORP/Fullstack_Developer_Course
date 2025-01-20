@@ -1,47 +1,70 @@
-import React, { createContext, useState } from 'react'
-import axios from "axios"
-
+import React, { createContext, useState } from "react";
+import axios from "axios";
 
 //!context alanı aç
 
-export const RecipeContext=createContext()
-
+export const RecipeContext = createContext();
 
 const APP_ID = "bfbb3efc";
 const APP_KEY = "43faeee790f26cd82b28050d3031619d";
 
 // https://developer.edamam.com/admin/applications
 
-const RecipeProvider = ({children}) => {
+const RecipeProvider = ({ children }) => {
+  //! Login ve PrivateRouter için stateler
+  const [user, setUser] = useState(localStorage.getItem("username") || "");
+  const [pass, setPass] = useState(localStorage.getItem("pass") || "");
 
-  const [yemekler,setYemekler]=useState([])
-  const [query,setQuery]=useState("")
+  //! Header, Home ve RecipeCard componentleri için
+  const [yemekler, setYemekler] = useState([]);
+  const [query, setQuery] = useState("");
   const [mealType, setMealType] = useState("Breakfast");
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${mealType}`;
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${mealType}`;
 
+  const getirData = async () => {
+    setLoading(true);
+    try {
+      const { data } = await axios.get(url);
+      // console.log(data.hits);
+      setYemekler(data.hits);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-const getirData=async()=>{
-
-  const {data}=  await axios.get(url)
-// console.log(data.hits);
- setYemekler(data.hits)
-
-
-
-}
-
-console.log(yemekler);
-
-
+  if(error){
+    return <p>Hata alındı!</p>
+  }
+  if (loading){
+    return <p>Yükleniyor...</p>
+  }
 
   return (
-    <RecipeContext.Provider value={{setQuery,setMealType,getirData,yemekler}}>
-{children}
-
+    <RecipeContext.Provider
+      value={{
+        setQuery,
+        setMealType,
+        getirData,
+        yemekler,
+        setUser,
+        setPass,
+        user,
+        pass,
+      }}
+    >
+      {children}
     </RecipeContext.Provider>
-  )
-}
+  );
+};
 
-export default RecipeProvider
+export default RecipeProvider;
+
+// !Navigate'i şu durumlarda kullanın: İşleme süreci sırasında otomatik veya koşullu gezinmeye ihtiyacınız varsa (örneğin, başarılı bir oturum açma işleminden sonra yeniden yönlendirme vb.).
+
+//! useNavigate'i şu durumlarda kullanın: Kullanıcı eylemlerine veya olaylarına (örneğin, düğmeye tıklama, form gönderme veya benzeri etkileşimli olaylar) yanıt olarak gezinmenin gerçekleşmesini istiyorsanız.
