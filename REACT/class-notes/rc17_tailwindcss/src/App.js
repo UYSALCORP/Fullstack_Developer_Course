@@ -1,13 +1,19 @@
+import FlexAndResponsive from "./components/FlexAndResponsive";
+import HoverAndFocus from "./components/HoverAndFocus";
 import SpacingAndSizing from "./components/SpacingAndSizing";
 import Typography from "./components/Typography";
+import Navbar from "./components/Navbar"
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-center m-5">Tailwind CSS</h1>
-      <br />
+      <Navbar/>
+      {/* <h1 className="text-center m-5">Tailwind CSS</h1> */}
+      {/* <br /> */}
       {/* <Typography/> */}
-      <SpacingAndSizing/>
+      {/* <SpacingAndSizing/> */}
+      {/* <HoverAndFocus/> */}
+      {/* <FlexAndResponsive/> */}
     </div>
   );
 }
