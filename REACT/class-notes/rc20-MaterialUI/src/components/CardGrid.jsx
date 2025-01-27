@@ -1,9 +1,50 @@
-import React from 'react'
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react'
 
 const CardGrid = () => {
+
+const[products,setProducts]=useState([])
+
+useEffect(()=>{
+fetch("https://dummyjson.com/products")
+  .then((res) => res.json())
+  .then((data) => setProducts(data.products));
+},[])
+
+
+
   return (
-    <div>CardGrid</div>
-  )
+    <Container>
+      <Typography>CARD GRID</Typography>
+
+      <Grid container sx={{gap:2}}>
+        {products.map((a) => (
+          <Grid size={{xs:6, md:4}} item key={a.id} >
+            <Card sx={{ maxWidth: 345, height: 550 }}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="250"
+                image={a.thumbnail}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {a.title}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                {a.description}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" variant='contained'>Share</Button>
+                <Button size="small" variant='contained'>Learn More</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  );
 }
 
 export default CardGrid
