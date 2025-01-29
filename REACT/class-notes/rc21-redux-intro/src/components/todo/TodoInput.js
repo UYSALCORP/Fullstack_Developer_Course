@@ -2,10 +2,7 @@
 
 
 const TodoInput = () => {
-
-
-
-
+  //! Elşe fonksiyonu
 
   return (
     <form >

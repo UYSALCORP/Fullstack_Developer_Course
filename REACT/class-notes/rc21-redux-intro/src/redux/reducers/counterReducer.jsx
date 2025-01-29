@@ -1,4 +1,4 @@
-import React from 'react'
+
 //mutfak
 const counterReducer = (state={sayac:0, text:""}, {type, payload}) => {
   switch (type) {
