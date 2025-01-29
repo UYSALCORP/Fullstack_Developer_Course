@@ -1,10 +1,12 @@
 import React from "react";
 import okLogo from "../../assets/ok.png";
 import deleteLogo from "../../assets/delete.png";
+import { useDispatch } from "react-redux";
+import { degistir, sil } from "../../redux/actions/todoActions";
 
 
 const TodoItem = ({a}) => {
-
+  const dispatch = useDispatch()
 
   return (
     <div
@@ -22,7 +24,7 @@ const TodoItem = ({a}) => {
             src={okLogo}
             className="ok-logo"
             alt="ok logo"
-            //onClick{()=>degistir()}
+            onClick={()=>dispatch(degistir(a.task))}
       
           />
         </span>
@@ -31,7 +33,7 @@ const TodoItem = ({a}) => {
             src={deleteLogo}
             className="delete-logo"
             alt="delete logo"
-            //onClick{()=>sil()}
+            onClick={()=>dispatch(sil(a))}
           />
         </span>
       </div>

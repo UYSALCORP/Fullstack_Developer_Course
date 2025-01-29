@@ -1,18 +1,26 @@
-
-const initial={
-  yapilacaklar:[
-    {id:1, task:"Redux öğreniyorum!", completed:false},
-    {id:2, task:"Akşam yemeğini ye!", completed:true}
-  ]
-}
+const initial = {
+  yapilacaklar: [
+    { id: 1, task: "Redux öğreniyorum!", completed: false },
+    { id: 2, task: "Akşam yemeğini ye!", completed: true },
+  ],
+};
 //mutfak
-const todoReducer = (state=initial, {type, payload}) => {
+const todoReducer = (state = initial, { type, payload }) => {
   switch (type) {
-    // case "ekle":
-    
+    case "EKLE":
+      return {
+        yapilacaklar: [
+          ...state.yapilacaklar,
+          { id: 3, task: payload, completed: false },
+        ],
+      };
+    case "SIL":
+      return { yapilacaklar: state.yapilacaklar.filter((s) => s !== payload) };
+    case "DEGISTIR":
+      return { yapilacaklar: state.yapilacaklar.map((a)=>a.task === payload ? {...a, completed:!a.completed} : a)}
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default todoReducer
+export default todoReducer;
