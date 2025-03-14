@@ -41,3 +41,46 @@ JOIN "Album" t2 USING ("ArtistId")
 -- WHERE "Name" IS NOT NULL ;
 
 --? Bütün sanatçıları göster. Hangi sanatçı hangi albume sahip onu da göster. Albüm sahibi olmayan kayıtları NULL göster.
+SELECT "Name", "Title", t1."ArtistId"
+FROM "Artist" t1
+LEFT JOIN "Album" t2 USING ("ArtistId")
+
+--! Functions ( IN & count )
+--* Albüm tablosundaki toplam kayıt sayısını getirme
+SELECT count(*) "total-album-number" FROM "Album";
+SELECT count("AlbumId") "total-album-number" FROM "Album";
+
+--* Her ülkenin toplam fatura sayısı
+SELECT "BillingCountry", count("InvoiceId") "total-invoice"
+FROM "Invoice"
+GROUP BY "BillingCountry";
+
+--* Bir ülkede birden fazla müşterisi olan ülkeleri getir.
+SELECT Country, count("Country") "country-count"
+FROM Customer
+GROUP BY "Country"
+HAVING count("Country") > 1;
+
+--* ABD ve Kanada'daki faturaları listele
+SELECT * 
+FROM "Invoice"
+WHERE BillingCountry IN ('USA', 'Canada')
+
+--! INSERT, UPDATE, DELETE
+SELECT * FROM Genre;
+--? Yeni bir müzik türü ekle (INSERT)
+INSERT INTO Genre ("GenreId", "Name") VALUES(27, 'Uysal')
+
+--* Birden fazla müzik türü ekle
+INSERT INTO Genre ("GenreId", "Name") 
+VALUES(28, 'Türk Halk Müziği'), (29, 'Pop')
+
+--? Bir müzik türünün adını güncelle (Uysal)
+UPDATE Genre
+SET NAME = 'Tasavvuf'
+WHERE "GenreId" = 27;
+
+--* Genre tablosundaki tüm verileri sil
+DELETE FROM Genre;
+DELETE FROM "Invoice"
+WHERE "InvoiceId" = 1;
