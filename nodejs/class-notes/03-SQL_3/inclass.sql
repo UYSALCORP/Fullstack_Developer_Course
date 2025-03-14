@@ -26,3 +26,18 @@ LEFT JOIN "Album" AS l ON a."ArtistId" = l."ArtistId"
 SELECT a."ArtistId", a."Name", l."AlbumId",l."Title"
 FROM "Artist" AS a
 RIGHT JOIN "Album" AS l ON a."ArtistId" = l."ArtistId"
+ORDER BY a."ArtistId" ASC, l."AlbumId" ASC;
+
+-- FULL OUTER JOIN -- Her iki tablonun bütün kayıtlarını getir.
+SELECT a."ArtistId", a."Name", l."AlbumId",l."Title"
+FROM "Artist" AS a
+FULL OUTER JOIN "Album" AS l ON a."ArtistId" = l."ArtistId";
+
+--? Hangi sanatçı hangi albümleri çıkarmıştır? Bir albüme sahip olmayan sanatçıları gösterme.
+SELECT "Name", "Title", t1."ArtistId"
+FROM "Artist" t1
+-- ON kullanmak yerine her iki taraftan da aldıgımızı belirtmek için using kullandık.
+JOIN "Album" t2 USING ("ArtistId")
+-- WHERE "Name" IS NOT NULL ;
+
+--? Bütün sanatçıları göster. Hangi sanatçı hangi albume sahip onu da göster. Albüm sahibi olmayan kayıtları NULL göster.
