@@ -12,8 +12,8 @@ module.exports = {
         });
     },
     create: async (req, res) => {
-        const result = await BlogCategory
-        res.status(200).send({
+        const result = await BlogCategory.create(req.body);
+        res.status(201).send({
             error:false,
             result
         });

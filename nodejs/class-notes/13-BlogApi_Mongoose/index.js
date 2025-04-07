@@ -18,10 +18,13 @@ require("express-async-errors");
 // const dbConnection = require("./src/dbConnection");
 // dbConnection();
 require("./src/dbConnection")();
-// ---------------------------
-// Routes
-app.all("/", (req, res)=> res.send("Welcome to Blog API"));
 
+// ---------------------------
+// Main Route:
+app.all("/", (req, res)=> res.send("Welcome to Blog API"));
+// Blog Routes:
+app.use(require("./src/routes/blog.router"));
+// Error Handler: 
 app.use(require("./src/middlewares/errorHandler"));
 
 
