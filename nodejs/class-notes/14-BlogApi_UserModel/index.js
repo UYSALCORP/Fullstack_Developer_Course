@@ -25,7 +25,9 @@ require('./src/dbConnection')();
 app.all('/', (req, res) => res.send('Welcome to Blog API'));
 
 // Blog Route
-app.use(require('./src/routes/blog.router'));
+app.use("/blogs",require('./src/routes/blog.router'));
+// User Route
+app.use("/users",require("./src/routes/user.router"));
 
 
 /*------------------------------------------------------- */

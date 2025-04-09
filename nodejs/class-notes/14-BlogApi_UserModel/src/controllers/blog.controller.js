@@ -95,7 +95,7 @@ module.exports.blogPost = {
   read: async (req, res) => {
     // const result = await BlogPost.findOne({...filter})
     // const result = await BlogPost.findOne({_id: req.params.id})
-    const result = await BlogPost.findById(req.params.id, {title:1,content:1,categoryId:true});
+    const result = await BlogPost.findById(req.params.id, {title:1,content:1,categoryId:true, userId:true});
 
     res.status(200).send({
       error: false,
