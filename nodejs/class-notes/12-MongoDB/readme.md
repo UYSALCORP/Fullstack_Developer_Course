@@ -45,3 +45,5 @@
     $ mongosh --version
     $ mongosh # defaul:local
     $ mongosh mongodb://localhost:27017/
+
+### Regex: Search işlemi yapacaksan yani veri içerisinde veri arayacaksan $regex kullanacaksın. '/' da kullanabilirsin
