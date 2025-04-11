@@ -4,7 +4,7 @@
 ------------------------------------------------------- */
 
 const User = require("../models/user.model");
-const passwordEncrypte = require("../utils/passwordEncrypte")
+const passwordEncrypte = require("../utils/passwordEncrypte");
 
 module.exports = {
   list: async (req, res) => {
@@ -80,10 +80,26 @@ module.exports = {
       const user = await User.findOne({ email: email });
       if (user) {
         if (user.password == passwordEncrypte(password)) {
+          //! Session
+          // 1.Yol -> Object şeklinde
+          //   req.session = {
+          //     email: user.email,
+          //     _id: user._id,
+          //   };
+          // 2.Yol -> Teker teker
+          req.session._id = user._id;
+          req.session.email = user.email;
+          //! Cookie
+          // Kişi Remember Me dediyse 3 gün boyunca hatırlayacak!
+          if (req.body?.rememberMe == true) {
+            req.session.rememberMe = true;
+            req.sessionOptions.maxAge = 1000 * 60 * 60 * 24 * 3;
+          }
+
           res.status(200).send({
             error: false,
             message: "Login is Successful.",
-            user
+            user,
           });
         } else {
           res.customErrorCode = 401;
@@ -98,4 +114,12 @@ module.exports = {
       throw new Error("Email and Password are required!");
     }
   },
+
+  logout: async (req, res) => {
+    req.session = null,
+    res.status(200).send({
+        error: false,
+        message: "Logout is succesful"
+    })
+  }
 };

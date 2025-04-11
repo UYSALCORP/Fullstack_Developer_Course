@@ -33,8 +33,10 @@ app.use(session({
 /*------------------------------------------------------- */
 // Main Route:
 app.all('/', (req, res) =>{
-    console.log(req.session)
-    res.send('Welcome to Blog API')
+    res.send({
+        message: "Welcome to Blog API",
+        session: req.session,
+    })
 });
 
 // Blog Route
