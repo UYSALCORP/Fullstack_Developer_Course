@@ -28,3 +28,17 @@ console.log("Module çalışıyor.")
 //     console.log("2,4,6,8")
 // }
 // module.exports = {tekRakam,ciftRakam};
+
+/* ----------------------- Bizim kullanacağımız yöntem (piyasa standartı)---------------------- */
+module.exports = {
+    test1: function(){
+        console.log("test1 calisti")
+    },
+    test2: function(){
+        console.log("test2 calisti")
+    },
+    test3: function(){
+        console.log("test3 calisti")
+    },
+    deger: "fs18"
+}

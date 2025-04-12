@@ -15,3 +15,8 @@ require("./modules/module") //! Require = import | Başka bir js dosyasını iç
 /* ------------------------------------ - ----------------------------------- */
 // const {tekRakam, ciftRakam} = require("./modules/module")
 // tekRakam(), ciftRakam()
+
+/* ------------------- Bizim kullanacağımız import yöntemi ------------------ */
+const {test1, test2, test3, deger} = require("./modules/module")
+test1(), test2(), test3()
+console.log(deger)
