@@ -26,7 +26,8 @@ require('express-async-errors')
 //     secret: process.env.SECRET_KEY,
 // }))
 
-
+// Database Connection
+require("./src/configs/dbConnection");
 
 // Query Handler:
 app.use(require('./src/middlewares/queryHandler'))
