@@ -32,9 +32,6 @@ require("./src/configs/dbConnection");
 // Query Handler:
 app.use(require('./src/middlewares/queryHandler'))
 
-
-
-
 /* ------------------------------------------------------- */
 // Routes:
 app.all('/', (req, res) => {
@@ -43,6 +40,8 @@ app.all('/', (req, res) => {
         message: 'WELCOME TO PERSONNEL API',
     })
 })
+
+app.use("/departments", require("./src/routes/department"))
 
 
 // Error Handler:

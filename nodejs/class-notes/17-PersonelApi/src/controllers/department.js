@@ -6,10 +6,10 @@ const Department = require("../models/department")
 
 module.exports = {
     list: async (req, res) => {
-        const result = await getModelList(Department)
+        const result = await res.getModelList(Department)
         res.status(200).send({
             error: false,
-            details: await getModelListDetails(Department),
+            details: await res.getModelListDetails(Department),
             result
         })
     },
@@ -29,7 +29,7 @@ module.exports = {
         })
     },
     update: async (req, res) => {
-        const result = await Department.updateOne({_id:req.params.id}, req.body)
+        const result = await Department.updateOne({_id:req.params.id}, req.body,{runValidators:true,new:true})
         // 202 : Update
         res.status(202).send({
             error: false,
