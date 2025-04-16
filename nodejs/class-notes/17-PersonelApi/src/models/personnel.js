@@ -8,7 +8,7 @@ const passwordEncrypt = require("../helpers/passwordEncrypt")
 
 const PersonnelSchema = new mongoose.Schema({
     departmentId: {
-        type:mongoose.Schema.types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Department",
         required:true
     },
@@ -86,5 +86,14 @@ const PersonnelSchema = new mongoose.Schema({
     timestapms: true
 }
 )
+//* Eklenebilecek extra fonksiyonlar
+
+// PersonnelSchema.set("toJson", {
+//     transform:(doc, ret)=>{
+//         ret.id = ret._id,
+//         delete ret._v
+//         ret.createdAt = ret.createdAt.toLocalDateString("tr-tr")
+//     }
+// })
 
 module.exports = mongoose.model("Personnel", PersonnelSchema)
