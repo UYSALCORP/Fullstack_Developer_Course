@@ -4,15 +4,17 @@
 ------------------------------------------------------- */
 const router = require('express').Router()
 const {list, create, read, update, deletee} = require("../controllers/token")
+const { isAdmin } = require('../middlewares/permissions')
 /* ------------------------------------------------------- */
+// router.use(isAdmin) //! Bunu yazınca tek tek isAdmin yazmamıza gerek kalmıyor!!!
 
-router.route("/").get(list).post(create)
+router.route("/").get(isAdmin, list).post(isAdmin, create)
 
 router.route("/:id")
-.get(read)
-.put(update)
-.patch(update)
-.delete(deletee)
+.get(isAdmin, read)
+.put(isAdmin, update)
+.patch(isAdmin, update)
+.delete(isAdmin, deletee)
 
 
 /* ------------------------------------------------------ */
