@@ -40,6 +40,21 @@ app.use(require('./src/middlewares/authentication'));
 const morgan = require("morgan");
 app.use(require("./src/middlewares/morgan"))
 
+// JSON Route:
+app.use("/documents/json", (req, res)=>{
+    res.sendFile("src/configs/swagger.json", {root:"."})
+})
+
+// Swagger:
+const swaggerUi = require("swagger-ui-express")
+const swaggerJson = require("./src/configs/swagger.json")
+app.use("/documents/swagger", swaggerUi.serve, swaggerUi.setup(swaggerJson, { swaggerOptions: {persistAuthorization:true} }))
+
+// Redoc:
+const redoc = require("redoc-express");
+app.use("./documents/redoc", redoc({specUrl:"/documents/json", title:"Redoc UI"}))
+
+
 // app.use(morgan("tiny")) // default running is console.log()
 // app.use(morgan("short")) 
 // app.use(morgan("dev")) 
@@ -57,6 +72,7 @@ app.use(require("./src/middlewares/morgan"))
 // app.use(morgan(customLog, {
 //     stream: fs.createWriteStream(`./logs/${today}.log`, {flags:"a+"})
 // } ))
+
 /* ------------------------------------------------------- */
 // Routes:
 app.all('/', (req, res) => {

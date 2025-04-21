@@ -7,6 +7,10 @@ const Personnel = require('../models/personnel');
 
 module.exports = {
     list: async (req, res) => {
+        /* 
+            #swagger.tags = ["Departments"]
+            #swagger.summary = "List Departments"
+        */
 
         const result = await res.getModelList(Department)
 
@@ -20,6 +24,11 @@ module.exports = {
 
     create: async (req, res) => {
 
+        /* 
+            #swagger.tags = ["Departments"]
+            #swagger.summary = "Create Departments"
+        */
+
         const result = await Department.create(req.body)
 
         res.status(201).send({
@@ -29,6 +38,11 @@ module.exports = {
 
     },
     read: async (req, res) => {
+
+                /* 
+            #swagger.tags = ["Departments"]
+            #swagger.summary = "Get Single Department"
+        */
 
         const result = await Department.findOne({ _id: req.params.id })
 
@@ -52,6 +66,11 @@ module.exports = {
 
     },
     delete: async (req, res) => {
+
+                /* 
+            #swagger.tags = ["Departments"]
+            #swagger.summary = "Delete Departments"
+        */
 
         const result = await Department.deleteOne({ _id: req.params.id })
 
