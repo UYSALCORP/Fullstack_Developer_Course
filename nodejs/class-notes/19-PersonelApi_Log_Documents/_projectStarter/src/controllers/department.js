@@ -3,7 +3,6 @@
     EXPRESS - Personnel API
 ------------------------------------------------------- */
 const Department=require("../models/department")
-const Personnel = require("../models/personnel")
 
 module.exports={
     list:async (req,res)=>{
@@ -60,15 +59,5 @@ module.exports={
             message:"Data is not found  or deleted"
         })
 
-    },
-    // Todo: İlgili departmandaki tüm kişileri listeleme
-    personnels: async (req,res) => {
-        const { id:departmentId } = req.params;
-        const result = await res.getModelList(Personnel, { departmentId });
-        res.status(200).send({
-            errort:false,
-            details: await res.getModelListDetails(Personnel),
-            result
-        })
     }
 }

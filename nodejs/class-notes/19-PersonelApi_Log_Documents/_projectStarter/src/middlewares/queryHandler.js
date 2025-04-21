@@ -47,12 +47,12 @@ module.exports = async (req, res, next) => {
 
     res.getModelList = async function (Model, populate = null) {
 
-        return await Model.find({ ...filter, ...search, ...customFilter }).sort(sort).limit(limit).skip(skip).populate(populate)
+        return await Model.find({ ...filter, ...search }).sort(sort).limit(limit).skip(skip).populate(populate)
     }
 
-    res.getModelListDetails = async (Model, customFilter) => {
+    res.getModelListDetails = async (Model) => {
 
-        const data = Model.find({ ...filter, ...search, ...customFilter })
+        const data = Model.find({ ...filter, ...search })
 
         const details = {
             filter: filter,

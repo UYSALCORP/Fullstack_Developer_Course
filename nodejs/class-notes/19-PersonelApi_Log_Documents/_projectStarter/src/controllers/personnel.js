@@ -19,12 +19,6 @@ module.exports={
 
     create:async (req,res)=>{
 
-        // Todo: Yeni bir isLead olusturulursa eskisini False yap
-        const isLead = req.body?.isLead || false 
-        if(isLead){
-            await Personnel.updateMany({departmentId:req.body.departmentId, isLead: true}, {isLead:false}).then(()=>console.log("Personnels Updated"))
-        }
-
         const result=await Personnel.create(req.body)
 
         res.status(201).send({
@@ -44,13 +38,6 @@ module.exports={
 
     },
     update:async (req,res)=>{
-
-        // Todo: Eger bir update olursa ve bu update lead olursa eski lead'ı false yap.
-        const isLead = req.body?.isLead || false 
-        if(isLead){
-            const { departmentId } = await Personnel.findOne({_id:req.params.id}, {departmentId: 1}) 
-            await Personnel.updateMany({departmentId, isLead:true}, {isLead:false})
-        }
 
         const result=await Personnel.updateOne({ _id:req.params.id},req.body,{
             runValidators:true,  // runs validation methods

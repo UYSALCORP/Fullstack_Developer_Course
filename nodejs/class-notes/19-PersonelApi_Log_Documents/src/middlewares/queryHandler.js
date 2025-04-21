@@ -45,14 +45,14 @@ module.exports = async (req, res, next) => {
     // console.log('skip--', skip)
     // console.log('page--', page)
 
-    res.getModelList = async function (Model, populate = null) {
+    res.getModelList = async function (Model, customFilter = {}, populate = null) {
 
         return await Model.find({ ...filter, ...search, ...customFilter }).sort(sort).limit(limit).skip(skip).populate(populate)
     }
 
-    res.getModelListDetails = async (Model, customFilter) => {
+    res.getModelListDetails = async (Model, customFilter = {}) => {
 
-        const data = Model.find({ ...filter, ...search, ...customFilter })
+        const data = Model.find({ ...filter, ...search , ...customFilter})
 
         const details = {
             filter: filter,
@@ -61,13 +61,13 @@ module.exports = async (req, res, next) => {
             skip,
             limit,
             page,
+            totalRecords: data.length,
             pages: {
                 previous: (page > 1 ? page - 1 : false),
                 current: page,
                 next: page + 1,
                 total: Math.ceil(data.length / limit)
             },
-            totalRecords: data.length
         }
 
         details.pages.next = (details.pages.next > details.pages.total ? false : details.pages.next)
