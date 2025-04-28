@@ -5,9 +5,9 @@
 
 const CustomError = require("../helpers/customError");
 const passwordEncrypt = require("../helpers/passwordEncrypt");
-const User = require("../models/user")
-const Token = require("../models/token")
-const jwt = require("jsonwebtoken")
+const User = require("../models/user");
+const Token = require("../models/token");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   login: async (req, res) => {
@@ -25,38 +25,46 @@ module.exports = {
             }
         */
     const { username, email, password } = req.body;
-    if(!((username || email) && password)){
-        // res.errorStatusCode = 401;
-        // throw new Error("Username/Email and password required!");
-        throw new CustomError("Username/Email and password required!", 401)
+    if (!((username || email) && password)) {
+      // res.errorStatusCode = 401;
+      // throw new Error("Username/Email and password required!");
+      throw new CustomError("Username/Email and password required!", 401);
     }
 
-    const user = await User.findOne({ $or:[{email},{username}], password });
-    if(!user) throw new CustomError("Incorrect email/username or password", 401);
-    if(!user.isActive) throw new CustomError("This account is not active");
+    const user = await User.findOne({
+      $or: [{ email }, { username }],
+      password,
+    });
+    if (!user)
+      throw new CustomError("Incorrect email/username or password", 401);
+    if (!user.isActive) throw new CustomError("This account is not active");
     // Simple Token
     let tokenData = await Token.findOne({ userId: user._id });
-    if (!tokenData){
-        tokenData = await Token.create({
-            userId: user._id,
-            token: passwordEncrypt(Date.now() + user._id)
-        })
+    if (!tokenData) {
+      tokenData = await Token.create({
+        userId: user._id,
+        token: passwordEncrypt(Date.now() + user._id),
+      });
     }
     // Simple Token
 
     // JWT Token
     //* Acces Token
     const accessData = {
-        _id: user._id,
-        username: user.username,
-        isActive: user.isActive,
-        isAdmin: user.isAdmin
+      _id: user._id,
+      username: user.username,
+      isActive: user.isActive,
+      isAdmin: user.isAdmin,
     };
     // const accessToken = jwt.sign(payload, secretKey, lifetime)
-    const accessToken = jwt.sign(accessData, process.env.ACCESS_KEY, {expiresIn: "15m"});
-    
+    const accessToken = jwt.sign(accessData, process.env.ACCESS_KEY, {
+      expiresIn: "15m",
+    });
+
     //* Refresh Token
-    const refreshToken = jwt.sign({ _id:user._id }, process.env.REFRESH_KEY, {expiresIn: "1d"});
+    const refreshToken = jwt.sign({ _id: user._id }, process.env.REFRESH_KEY, {
+      expiresIn: "1d",
+    });
 
     // JWT Token
 
@@ -64,23 +72,55 @@ module.exports = {
       error: false,
       bearer: {
         access: accessToken,
-        refresh: refreshToken
+        refresh: refreshToken,
       },
       token: tokenData.token,
-      user: user
+      user: user,
     });
-
   },
   logout: async (req, res) => {
-    res.status(200).send({
-      error: false,
-      message: "OK",
-    });
+    /*
+          #swagger.tags = ["Authentication"]
+            #swagger.summary = "Logout"
+    */
+    const auth = req.headers?.authorization; // Token ...TokenKey... || Bearer ...AccessToken...
+    const tokenArr = auth ? auth.split(" ") : null;
+    if (tokenArr && tokenArr[0] == "Token") {
+      const result = await Token.deleteOne({ token: tokenArr[1] });
+      res.status(200).send({
+        error: false,
+        result,
+        message: "Simple Token: Token deleted. Logout Success",
+      });
+    } else if (tokenArr && tokenArr[0] == "Bearer") {
+      res.status(200).send({
+        error: false,
+        message: "JWT: No need any process for logout. Logout Success",
+      });
+    }
   },
   refresh: async (req, res) => {
+    const {refresh} = req.body;
+    if(!refresh) throw new CustomError("Refresh Token not found", 401);
+    const refreshData = jwt.verify(refresh, process.env.REFRESH_KEY);
+    if(!refreshData) throw new CustomError("JWT Refresh token is wrong")
+    
+    const user = await User.findById(refreshData._id);
+    if(!user) throw new CustomError("JWT Refresh Token data is broken");
+    if(!user.isActive) throw new CustomError("This account is not active");
+
+    const accessData = {
+        _id: user._id,
+        username: user.username,
+        isActive: user.isActive,
+        isAdmin: user.isAdmin,
+      };
+
+      const accessToken = jwt.sign(accessData, procces.env.ACCESS_KEY, {expiresIn: "15m"})
+
     res.status(200).send({
       error: false,
-      message: "OK",
+      access: accessToken
     });
   },
 };
