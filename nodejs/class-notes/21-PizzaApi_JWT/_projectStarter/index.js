@@ -20,9 +20,9 @@ const app = express()
 require('dotenv').config()
 const PORT = process.env?.PORT || 8000
 
-// Query parse was "extended" with v5 it is using built in library which "qs(querystring)"
-// extended -> ?a[b]=1 = {a: {b:1}} & qs =a[b]=1 = {"a[b]":1}
-app.set("query parser", "extended")
+// asyncErrors to errorHandler:
+require('express-async-errors')
+
 /* ------------------------------------------------------- */
 // Configrations:
 
@@ -49,7 +49,7 @@ app.use(require('./src/middlewares/queryHandler'))
 // Routes:
 
 // routes/index.js:
-app.use('/', require('./src/routes'))
+app.use('/', require('./src/routes/'))
 
 // HomePath:
 app.all('/', (req, res) => {

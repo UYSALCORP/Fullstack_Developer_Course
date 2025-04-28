@@ -20,9 +20,10 @@ const app = express()
 require('dotenv').config()
 const PORT = process.env?.PORT || 8000
 
-// Query parse was "extended" with v5 it is using built in library which "qs(querystring)"
-// extended -> ?a[b]=1 = {a: {b:1}} & qs =a[b]=1 = {"a[b]":1}
-app.set("query parser", "extended")
+// qeury parse was 'extended' with v5 it is using built in libriray which 'qs(querystring)'
+// extended -> ?a[b]=1 = { a: { b:1 }} & qs -> ?a[b]=1 = { 'a[b]':1 }
+app.set('query parser', 'extended');
+
 /* ------------------------------------------------------- */
 // Configrations:
 
