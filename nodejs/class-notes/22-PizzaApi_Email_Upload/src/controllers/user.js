@@ -4,6 +4,7 @@
 ------------------------------------------------------- */
 const User = require("../models/user");
 const sendMail = require("../helpers/sendMail");
+const { welcomeTmp } = require("../helpers/emailTemplates");
 
 module.exports = {
   list: async (req, res) => {
@@ -50,11 +51,7 @@ module.exports = {
     const result = await User.create(req.body);
 
     if(result){
-      sendMail(result.email, "Welcome to Pizza Api", `
-        <h1>Welcome</h1>  
-        <h2>${result.username}</h2>
-        <p>Enjoy your meal, thanks for choosing us</p>  
-        `)
+      sendMail(result.email, "Welcome to Pizza Api", welcomeTmp, result.username)
     }
 
     res.status(201).send({

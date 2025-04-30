@@ -4,13 +4,13 @@
 ------------------------------------------------------- */
 const transporter = require("../configs/nodemailer");
 
-module.exports = function sendMail(to, subject, message) {
+module.exports = function sendMail(to, subject, templateFunction, data=null) {
   transporter.sendMail(
     {
       from: process.env.ADMIN_EMAIL,
       to,
       subject,
-      html: message,
+      html: data? templateFunction(data) : templateFunction(),
       text: message,
     },
     function (error, success) {
