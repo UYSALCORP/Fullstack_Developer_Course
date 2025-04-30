@@ -4,7 +4,9 @@
 ------------------------------------------------------- */
 const router = require('express').Router()
 const user=require("../controllers/user")
+const upload = require("../middlewares/upload")
 /* ------------------------------------------------------- */
+// router.route("/").get(user.list).post(upload.single("profileImg"),user.create)
 router.route("/").get(user.list).post(user.create)
 
 router.route("/:id")

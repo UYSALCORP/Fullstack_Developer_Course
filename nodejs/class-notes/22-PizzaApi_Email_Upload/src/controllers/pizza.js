@@ -21,7 +21,7 @@ module.exports = {
             `
         */
 
-    const result = await res.getModelList(Pizza,"toppingIds");
+    const result = await res.getModelList(Pizza, {}, "toppingIds");
 
     res.status(200).send({
       error: false,
@@ -40,6 +40,13 @@ module.exports = {
     // toppingIds=[1,1,3,3,4,4,4,5]  bu şekilde tekrarlanana toppingIdler olabilir.
 
     req.body.toppingIds=[...new Set(req.body.toppingIds)]
+
+    if(req.file){ // Single 
+      req.body.image = req.file.filename
+    }
+
+    // if(req.files){} // Array
+
 
     const result = await Pizza.create(req.body);
 

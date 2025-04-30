@@ -151,6 +151,9 @@ app.all("/", (req, res) => {
   });
 });
 
+// Static Route
+app.use("/images", express.static("./uploads"))
+
 /* ------------------------------------------------------- */
 
 // errorHandler:

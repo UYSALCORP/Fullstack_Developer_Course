@@ -12,7 +12,8 @@ const PizzaSchema=new mongoose.Schema({
         required: true,
         unique: true,
       },
-      image:String,
+      image:String, // Single data
+      // image:[String], // Multiple data
       price:{
         type:Number,
         required:true
