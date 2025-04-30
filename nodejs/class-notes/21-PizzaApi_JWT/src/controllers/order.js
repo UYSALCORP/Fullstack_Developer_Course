@@ -44,7 +44,7 @@ module.exports = {
     }
  
     req.body.price=pizza.price
-    // req.body.userId = req.user._id;
+    req.body.userId = req.user._id;
     
     const result = await Order.create(req.body);
 
