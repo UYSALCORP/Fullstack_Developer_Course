@@ -379,6 +379,10 @@
             },
             "set": {
               "type": "function"
+            },
+            "select": {
+              "type": "boolean",
+              "example": false
             }
           }
         },
@@ -403,14 +407,8 @@
               }
             },
             "unique": {
-              "type": "array",
-              "example": [
-                true,
-                "There is this email. Email field must be unique"
-              ],
-              "items": {
-                "type": "string"
-              }
+              "type": "boolean",
+              "example": true
             },
             "validate": {
               "type": "array",
