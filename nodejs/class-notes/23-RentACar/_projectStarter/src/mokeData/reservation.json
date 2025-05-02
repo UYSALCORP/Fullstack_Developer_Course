@@ -1,0 +1,65 @@
+[
+  {
+    "userId": "64c5ed12345a123456789013",
+    "carId": "64c5ed12345a12345678901a",
+    "startDate": "2024-10-10",
+    "endDate": "2024-10-16",
+    "amount": 300,
+    "createdId": "64c5ed12345a123456789013",
+    "updatedId": "64c5ed12345a123456789013"
+  },
+  {
+    "userId": "64c5ed12345a123456789013",
+    "carId": "64c5ed12345a12345678901a",
+    "startDate": "2024-10-17",
+    "endDate": "2024-10-18",
+    "amount": 50,
+    "createdId": "64c5ed12345a123456789013",
+    "updatedId": "64c5ed12345a123456789018"
+  },
+  {
+    "userId": "64c5ed12345a123456789014",
+    "carId": "64c5ed12345a12345678901b",
+    "startDate": "2024-10-14",
+    "endDate": "2024-10-20",
+    "amount": 300,
+    "createdId": "64c5ed12345a123456789014",
+    "updatedId": "64c5ed12345a123456789014"
+  },
+  {
+    "userId": "64c5ed12345a123456789013",
+    "carId": "64c5ed12345a12345678901c",
+    "startDate": "2024-10-21",
+    "endDate": "2024-10-29",
+    "amount": 400,
+    "createdId": "64c5ed12345a123456789013",
+    "updatedId": "64c5ed12345a123456789013"
+  },
+  {
+    "userId": "64c5ed12345a123456789013",
+    "carId": "64c5ed12345a12345678901c",
+    "startDate": "2024-10-13",
+    "endDate": "2024-10-15",
+    "amount": 100,
+    "createdId": "64c5ed12345a123456789013",
+    "updatedId": "64c5ed12345a123456789013"
+  },
+  {
+    "userId": "64c5ed12345a123456789013",
+    "carId": "64c5ed12345a12345678901c",
+    "startDate": "2024-10-11",
+    "endDate": "2024-10-12",
+    "amount": 50,
+    "createdId": "64c5ed12345a123456789013",
+    "updatedId": "64c5ed12345a123456789013"
+  },
+  {
+    "userId": "64c5ed12345a123456789018",
+    "carId": "64c5ed12345a12345678901f",
+    "startDate": "2024-10-23",
+    "endDate": "2024-10-25",
+    "amount": 100,
+    "createdId": "64c5ed12345a123456789018",
+    "updatedId": "64c5ed12345a123456789018"
+  }
+]
