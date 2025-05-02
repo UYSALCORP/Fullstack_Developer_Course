@@ -15,6 +15,7 @@
 const { mongoose } = require("../configs/dbConnection");
 const passwordEncrypt = require("../helpers/passwordEncrypt");
 const uniqueValidator = require("mongoose-unique-validator");
+const emailValidation = require("../helpers/emailValidation");
 // User Model:
 const UserSchema = new mongoose.Schema(
   {
@@ -29,21 +30,21 @@ const UserSchema = new mongoose.Schema(
       type: String,
       trim: true,
       required: true,
+      // Validation'u controller'a taşıyacağız
       set: (password) => passwordEncrypt(password),
-      // selected:false
+      select:false
     },
 
     email: {
       type: String,
       trim: true,
       required: [true, "An Email address is required"],
-      unique: [true, "There is this email. Email field must be unique"],
+      // Unique mesajı hiçbir zaman görünmez
+      // MongoDB - Duplicate Error hatası görünür.
+      // Uniquevaldater kullanıyoruz to write your own message
+      unique: true, // [true, "There is this email. Email field must be unique"],
       validate: [
-        (email) => {
-          const regexEmailCheck =
-            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-          return regexEmailCheck.test(email);
-        },
+        (email) => emailValidation(email),
         "Email format is not valid",
       ],
     },
@@ -67,7 +68,7 @@ const UserSchema = new mongoose.Schema(
 );
 
 UserSchema.plugin(uniqueValidator, {
-  message: "This {PATH} is exist",
+  message: "This {PATH} is exist, Denemeler yapıyorum!?!?!?!",
 });
 
 /* ------------------------------------------------------- */

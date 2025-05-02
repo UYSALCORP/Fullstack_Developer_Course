@@ -114,6 +114,10 @@ module.exports = {
             #swagger.summary = "Delete User"
         */
 
+            //! Todo hardDelete - softDelete
+            //* frontend sil desin ama tamamen silinmesin datadan -> softDelete
+            // user modele -> isDeleted: false açıyoruz -> Delete işleminden sonra true yapıyoruz | Soft Delete
+            //* Belli aralıklarla yapılan gerçek silme işlemi -> hardDelete
     const data = await User.deleteOne({ _id: req.params.id });
 
     res.status(data.deletedCount ? 204 : 404).send({
