@@ -16,47 +16,49 @@
 }
 /* ------------------------------------------------------- */
 const { mongoose } = require("../configs/dbConnection");
-const dateToLocalString = require("../helpers/dateToLocaleString");
+const dateToLocaleString=require("../helpers/dateToLocaleString")
 
 // Reservation Model:
 const ReservationSchema = new mongoose.Schema(
   {
-    userId:{
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true
+      required: true,
     },
+
     carId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Car",
-      required: true
+      required: true,
     },
+
     startDate: {
       type: Date,
       required: true,
     },
+
     endDate: {
       type: Date,
-      required: true
+      required: true,
     },
+
     amount: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   {
     collection: "reservations",
     timestamps: true,
-  },
+  }
 );
-
-// Todo: Transform ile daha düzenli hale getir
 
 ReservationSchema.set("toJSON",{
   transform:(doc,ret)=>{
-    // ret.id= ret._id;
-    // ret.startDate= dateToLocalString(start)
-    delete ret._v
+    // ret.id=ret._id;
+    // ret.startDate=dateToLocaleString(ret.startDate);
+    delete ret._v;
   }
 })
 

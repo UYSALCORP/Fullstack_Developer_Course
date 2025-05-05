@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "64c5ed12345a123456789011",
+    "username": "admin",
+    "password": "aA*12345",
+    "email": "admin@example.com",
+    "isActive": true,
+    "isAdmin": true,
+    "isStaff": false
+  },
+  {
+    "_id": "64c5ed12345a123456789012",
+    "username": "staff",
+    "password": "aA*12345",
+    "email": "staff@example.com",
+    "isActive": true,
+    "isAdmin": false,
+    "isStaff": true
+  },
+  {
+    "_id": "64c5ed12345a123456789013",
+    "username": "normal",
+    "password": "aA*12345",
+    "email": "normal@example.com",
+    "isActive": true,
+    "isAdmin": false,
+    "isStaff": false
+  },
+  {
+    "_id": "64c5ed12345a123456789014",
+    "username": "normal1",
+    "password": "aA*12345",
+    "email": "normal1@example.com",
+    "isActive": true,
+    "isAdmin": false,
+    "isStaff": false
+  },
+  {
+    "_id": "64c5ed12345a123456789015",
+    "username": "banned",
+    "password": "aA*12345",
+    "email": "banned@example.com",
+    "isActive": false,
+    "isAdmin": false,
+    "isStaff": false
+  }
+]

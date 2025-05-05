@@ -1,0 +1,74 @@
+[
+  {
+    "plateNumber": "06ABC123",
+    "brand": "Ford",
+    "model": "Focus",
+    "year": 2023,
+    "isAutomatic": true,
+    "pricePerDay": 50,
+    "isAvailable": true,
+    "createdId": "64c5ed12345a123456789017",
+    "updatedId": "64c5ed12345a123456789017",
+    "_id": "64c5ed12345a12345678901a"
+  },
+  {
+    "plateNumber": "06ABC124",
+    "brand": "Renault",
+    "model": "Megane",
+    "year": 2022,
+    "isAutomatic": false,
+    "pricePerDay": 60,
+    "isAvailable": true,
+    "createdId": "64c5ed12345a123456789017",
+    "updatedId": "64c5ed12345a123456789017",
+    "_id": "64c5ed12345a12345678901b"
+  },
+  {
+    "plateNumber": "06ABC125",
+    "brand": "Cherry",
+    "model": "Tiggo8",
+    "year": 2024,
+    "isAutomatic": true,
+    "pricePerDay": 100,
+    "isAvailable": true,
+    "createdId": "64c5ed12345a123456789016",
+    "updatedId": "64c5ed12345a123456789016",
+    "_id": "64c5ed12345a12345678901c"
+  },
+  {
+    "plateNumber": "06ABC126",
+    "brand": "Honda",
+    "model": "Accord",
+    "year": 2023,
+    "isAutomatic": true,
+    "pricePerDay": 120,
+    "isAvailable": true,
+    "createdId": "64c5ed12345a123456789016",
+    "updatedId": "64c5ed12345a123456789016",
+    "_id": "64c5ed12345a12345678901d"
+  },
+  {
+    "plateNumber": "06ABC127",
+    "brand": "Hyundai",
+    "model": "Tucson",
+    "year": 2023,
+    "isAutomatic": true,
+    "pricePerDay": 110,
+    "isAvailable": false,
+    "createdId": "64c5ed12345a123456789016",
+    "updatedId": "64c5ed12345a123456789016",
+    "_id": "64c5ed12345a12345678901e"
+  },
+  {
+    "plateNumber": "06ABC128",
+    "brand": "VW",
+    "model": "Golf",
+    "year": 2024,
+    "isAutomatic": true,
+    "pricePerDay": 100,
+    "isAvailable": true,
+    "createdId": "64c5ed12345a123456789016",
+    "updatedId": "64c5ed12345a123456789016",
+    "_id": "64c5ed12345a12345678901f"
+  }
+]
