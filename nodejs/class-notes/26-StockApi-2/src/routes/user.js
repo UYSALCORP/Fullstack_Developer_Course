@@ -6,9 +6,10 @@ const router = require('express').Router()
 /* ------------------------------------------------------- */
 
 const { list, create, read, update, deletee } = require('../controllers/user');
+const { isAdmin, isStaff } = require("../middlewares/permissions");
 
-router.route('/').get(list).post(create);
+router.route('/').get(isAdmin,list).post(create);
 
-router.route('/:id').get(read).put(update).patch(update).delete(deletee);
+router.route('/:id').get(read).put(isStaff,update).patch(isStaff,update).delete(deletee);
 
 module.exports = router;
