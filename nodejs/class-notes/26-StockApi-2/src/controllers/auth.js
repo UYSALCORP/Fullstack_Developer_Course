@@ -48,7 +48,7 @@ module.exports = {
 
     /* JWT Token */
 
-    const { _id, email, password, ...accessPayload } = user;
+    const { _id, email, password, ...accessPayload } = user._doc;
 
     const accessToken = jwt.sign(accessPayload, process.env.ACCESS_KEY, {
       expiresIn: "30m",

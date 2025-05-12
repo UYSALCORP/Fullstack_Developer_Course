@@ -1,15 +1,15 @@
-"use strict"
+"use strict";
 /* -------------------------------------------------------
     | FULLSTACK TEAM | NODEJS / EXPRESS |
 ------------------------------------------------------- */
 
-const Sale = require('../models/sale');
-const CustomError = require('../helpers/customError');
+const Sale = require("../models/sale");
+const Product = require("../models/product");
+const CustomError = require("../helpers/customError");
 
 module.exports = {
-
-    list: async (req, res) => {
-        /*
+  list: async (req, res) => {
+    /*
             #swagger.tags = ["Sales"]
             #swagger.summary = "List Sales"
             #swagger.description = `
@@ -23,17 +23,22 @@ module.exports = {
             `
         */
 
-        const result = await res.getModelList(Sale);
+    const result = await res.getModelList(Sale, {}, [
+      { path: "userId", select: "username" },
+      { path: "brandId", select: "name" },
+      { path: "productId", select: "name" },
+      { path: "firmId", select: "name" },
+    ]);
 
-        res.status(200).send({
-            error: false,
-            details: await res.getModelListDetails(Sale),
-            result
-        });
-    },
+    res.status(200).send({
+      error: false,
+      details: await res.getModelListDetails(Sale),
+      result,
+    });
+  },
 
-    create: async (req, res) => {
-        /*
+  create: async (req, res) => {
+    /*
             #swagger.tags = ["Sales"]
             #swagger.summary = "Create Sale"
             #swagger.parameters['body'] = {
@@ -45,30 +50,49 @@ module.exports = {
             }
         */
 
-        const result = await Sale.create(req.body);
+    req.body.userId = req.user._id;
 
-        res.status(201).send({
-            error: false,
-            result
-        });
-    },
+    // Get Current Product
+    const currentProduct = await Product.findById(req.body.productId);
 
-    read: async (req, res) => {
-        /*
+    if (currentProduct.quantity < req.body.quantity)
+      throw new CustomError(
+        `There is not enough product-quantity for this sale. Current-quantity: ${currentProduct.quantity}`,
+        400
+      );
+
+    const result = await Sale.create(req.body);
+
+    if (result) {
+      // Update product quantity
+      await Product.updateOne(
+        { _id: result.productId },
+        { $inc: { quantity: -result.quantity } }
+      );
+    }
+
+    res.status(201).send({
+      error: false,
+      result,
+    });
+  },
+
+  read: async (req, res) => {
+    /*
             #swagger.tags = ["Sales"]
             #swagger.summary = "Get Single Sale"
         */
 
-        const result = await Sale.findById(req.params.id);
+    const result = await Sale.findById(req.params.id);
 
-        res.status(200).send({
-            error: false,
-            result
-        });
-    },
+    res.status(200).send({
+      error: false,
+      result,
+    });
+  },
 
-    update: async (req, res) => {
-        /*
+  update: async (req, res) => {
+    /*
             #swagger.tags = ["Sales"]
             #swagger.summary = "Update Sale"
             #swagger.parameters['body'] = {
@@ -80,29 +104,54 @@ module.exports = {
             }
         */
 
-        const result = await Sale.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true });
+    if (req.body.quantity) {
+      // Get current quantity
+      const currentSale = await Sale.findById(req.params.id);
+      // Calculate the difference
+      const difference = req.body.quantity - currentSale.quantity;
+      // Update Product with difference
+      const updatedProduct = await Product.updateOne(
+        { _id: currentSale.productId, quantity:{$gte: difference } },
+        { $inc: { quantity: -difference } }
+      );
+      if(!updatedProduct.modifiedCount) throw new CustomError(`There is not enough product-quantity for this sale.`,
+        400)
+    }
 
-        if (!result) throw new CustomError("Update failed, data is not found or already updated", 404);
+    const result = await Sale.findByIdAndUpdate(req.params.id, req.body, {
+      runValidators: true,
+      new: true,
+    });
 
-        res.status(202).send({
-            error: false,
-            result
-        });
-    },
+    if (!result)
+      throw new CustomError(
+        "Update failed, data is not found or already updated",
+        404
+      );
 
-    deletee: async (req, res) => {
-        /*
+    res.status(202).send({
+      error: false,
+      result,
+    });
+  },
+
+  deletee: async (req, res) => {
+    /*
             #swagger.tags = ["Sales"]
             #swagger.summary = "Delete Sale"
         */
 
-        const result = await Sale.findByIdAndDelete(req.params.id)
+    const result = await Sale.findByIdAndDelete(req.params.id);
 
-        if (!result) throw new CustomError("Delete failed, data is not found or already deleted", 404);
+    if (!result)
+      throw new CustomError(
+        "Delete failed, data is not found or already deleted",
+        404
+      );
 
-        res.status(200).send({
-            error: false,
-            result
-        });
-    },
-}
+    res.status(200).send({
+      error: false,
+      result,
+    });
+  },
+};

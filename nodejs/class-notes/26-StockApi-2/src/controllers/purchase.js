@@ -1,15 +1,15 @@
-"use strict"
+"use strict";
 /* -------------------------------------------------------
     | FULLSTACK TEAM | NODEJS / EXPRESS |
 ------------------------------------------------------- */
 
-const Purchase = require('../models/purchase');
-const CustomError = require('../helpers/customError');
+const Purchase = require("../models/purchase");
+const Product = require("../models/product");
+const CustomError = require("../helpers/customError");
 
 module.exports = {
-
-    list: async (req, res) => {
-        /*
+  list: async (req, res) => {
+    /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "List Purchases"
             #swagger.description = `
@@ -23,17 +23,22 @@ module.exports = {
             `
         */
 
-        const result = await res.getModelList(Purchase);
+    const result = await res.getModelList(Purchase, {}, [
+      { path: "userId", select: "username" },
+      { path: "brandId", select: "name" },
+      { path: "productId", select: "name" },
+      { path: "firmId", select: "name" },
+    ]);
 
-        res.status(200).send({
-            error: false,
-            details: await res.getModelListDetails(Purchase),
-            result
-        });
-    },
+    res.status(200).send({
+      error: false,
+      details: await res.getModelListDetails(Purchase),
+      result,
+    });
+  },
 
-    create: async (req, res) => {
-        /*
+  create: async (req, res) => {
+    /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "Create Purchase"
             #swagger.parameters['body'] = {
@@ -45,30 +50,38 @@ module.exports = {
             }
         */
 
-        const result = await Purchase.create(req.body);
+    req.body.userId = req.user._id;
 
-        res.status(201).send({
-            error: false,
-            result
-        });
-    },
+    const result = await Purchase.create(req.body);
 
-    read: async (req, res) => {
-        /*
+    if (result)
+      await Product.updateOne(
+        { _id: result.productId },
+        { $inc: { quantity: +result.quantity } }
+      );
+
+    res.status(201).send({
+      error: false,
+      result,
+    });
+  },
+
+  read: async (req, res) => {
+    /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "Get Single Purchase"
         */
 
-        const result = await Purchase.findById(req.params.id);
+    const result = await Purchase.findById(req.params.id);
 
-        res.status(200).send({
-            error: false,
-            result
-        });
-    },
+    res.status(200).send({
+      error: false,
+      result,
+    });
+  },
 
-    update: async (req, res) => {
-        /*
+  update: async (req, res) => {
+    /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "Update Purchase"
             #swagger.parameters['body'] = {
@@ -80,29 +93,56 @@ module.exports = {
             }
         */
 
-        const result = await Purchase.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true });
+    let currentPurchase;
+    if (req.body?.quantity) {
+      // Get current quantity
+      const currentPurchase = await Purchase.findById(req.params.id);
+    }
 
-        if (!result) throw new CustomError("Update failed, data is not found or already updated", 404);
+    const result = await Purchase.findByIdAndUpdate(req.params.id, req.body, {
+      runValidators: true,
+      new: true,
+    });
 
-        res.status(202).send({
-            error: false,
-            result
-        });
-    },
+    if (!result)
+      throw new CustomError(
+        "Update failed, data is not found or already updated",
+        404
+      );
 
-    deletee: async (req, res) => {
-        /*
+    if (req.body.quantity) {
+      // Calculate the difference
+      const difference = req.body.quantity - currentPurchase.quantity;
+      // Update Product with difference
+      await Product.updateOne(
+        { _id: currentPurchase.productId },
+        { $inc: { quantity: +difference } }
+      );
+    }
+
+    res.status(202).send({
+      error: false,
+      result,
+    });
+  },
+
+  deletee: async (req, res) => {
+    /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "Delete Purchase"
         */
 
-        const result = await Purchase.findByIdAndDelete(req.params.id)
+    const result = await Purchase.findByIdAndDelete(req.params.id);
 
-        if (!result) throw new CustomError("Delete failed, data is not found or already deleted", 404);
+    if (!result)
+      throw new CustomError(
+        "Delete failed, data is not found or already deleted",
+        404
+      );
 
-        res.status(200).send({
-            error: false,
-            result
-        });
-    },
-}
+    res.status(200).send({
+      error: false,
+      result,
+    });
+  },
+};

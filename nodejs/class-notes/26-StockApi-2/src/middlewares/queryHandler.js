@@ -47,13 +47,13 @@ module.exports = async (req, res, next) => {
     let skip = parseInt(req.query?.skip)
     skip = skip > 0 ? skip : (page - 1) * limit
 
-    res.getModelList = async (Model, populate = null) => {
-        return await Model.find({ ...filter, ...search }).sort(sort).skip(skip).limit(limit).populate(populate)
+    res.getModelList = async (Model, customFilter={}, populate = null) => {
+        return await Model.find({ ...filter, ...search, ...customFilter }).sort(sort).skip(skip).limit(limit).populate(populate)
     };
 
-    res.getModelListDetails = async (Model) => {
+    res.getModelListDetails = async (Model, customFilter = {}) => {
 
-        const count = await Model.countDocuments({ ...filter, ...search });
+        const count = await Model.countDocuments({ ...filter, ...search, ...customFilter });
 
         let details = {
             filter,
