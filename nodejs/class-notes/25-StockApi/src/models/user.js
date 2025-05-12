@@ -73,7 +73,7 @@ userSchema.pre(['save', 'findOneAndUpdate'], function (next) {
     // console.log(this);
 
     // _update -> findOneAndUpdate - this -> save
-    const data = this?._update ?? this; 
+    const data = this?._update ?? this;  // ?? null veya undefined anlamına gelir
 
     const isEmailValidated = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email);
     const isPasswordValidated = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(data.password);
