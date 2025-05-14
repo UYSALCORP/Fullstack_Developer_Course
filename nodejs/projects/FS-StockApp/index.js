@@ -5,6 +5,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const path = require("node:path");
 
 /* ------------------------------------------------------- */
 // Required Modules:
@@ -50,24 +51,37 @@ app.use(require("./src/middlewares/queryHandler"));
 // Routes:
 
 // HomePath:
-app.all("/", (req, res) => {
-  res.send({
-    error: false,
-    message: "Welcome to Stock Management API",
-    documents: {
-      swagger: "/documents/swagger",
-      redoc: "/documents/redoc",
-      json: "/documents/json",
-    },
-    user: req.user,
-  });
-});
+// app.all("/", (req, res) => {
+//   res.send({
+//     error: false,
+//     message: "Welcome to Stock Management API",
+//     documents: {
+//       swagger: "/documents/swagger",
+//       redoc: "/documents/redoc",
+//       json: "/documents/json",
+//     },
+//     user: req.user,
+//   });
+// });
+
+// Routes:
+app.use("/api/v1", require("./src/routes"));
 
 // Static Route:
 app.use("/upload", express.static("./upload"));
 
-// Routes:
-app.use(require("./src/routes"));
+// Client Static Files: //! Frontend için
+const distPath = path.join(__dirname, "client", "dist");
+app.use(express.static(distPath));
+
+// Client Static Route: 
+app.get("/*splat", (req, res)=>{
+  if(!req.path.startsWith("/api")){
+    res.sendFile(path.join(distPath, index.html));
+  }
+});
+
+
 
 /* ------------------------------------------------------- */
 
