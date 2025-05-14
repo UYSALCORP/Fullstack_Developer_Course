@@ -35,7 +35,7 @@ const saleSchema = new mongoose.Schema({
         required: true
     },
 
-    priceTotal: {
+    amount: {
         type: Number,
         set: function () { return this.quantity * this.price }, // only works if this field is sent
         default: function () { return this.quantity * this.price }, // works on create
