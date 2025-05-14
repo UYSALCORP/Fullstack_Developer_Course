@@ -23,14 +23,14 @@ app.set("query parser", "extended");
 const { dbConnection } = require("./src/configs/dbConnection");
 dbConnection();
 
-// Cors: 
+// Cors:
 const corsOptions = {
   origin: process.env.CORS_ORIGIN.split(",") || "*",
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
 
 /* ------------------------------------------------------- */
 // Middlewares:
@@ -74,14 +74,17 @@ app.use("/upload", express.static("./upload"));
 const distPath = path.join(__dirname, "client", "dist");
 app.use(express.static(distPath));
 
-// Client Static Route: 
-app.get("/*splat", (req, res)=>{
-  if(!req.path.startsWith("/api")){
+// Client Static Route:
+app.all("/*splat", (req, res) => {
+  if (req.path.startsWith("/api")) {
+    res.status(404).send({
+      error: true,
+      message: `Route '${req.originalUrl}' is not found.`,
+    });
+  } else {
     res.sendFile(path.join(distPath, index.html));
   }
 });
-
-
 
 /* ------------------------------------------------------- */
 

@@ -40,7 +40,17 @@
     "application/json"
   ],
   "paths": {
-    "/auth/login": {
+    "/*splat": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
       "post": {
         "tags": [
           "Authentication"
@@ -74,7 +84,7 @@
         }
       }
     },
-    "/auth/refresh": {
+    "/api/v1/auth/refresh": {
       "post": {
         "tags": [
           "Authentication"
@@ -109,7 +119,7 @@
         }
       }
     },
-    "/auth/logout": {
+    "/api/v1/auth/logout": {
       "post": {
         "tags": [
           "Authentication"
@@ -123,7 +133,7 @@
         }
       }
     },
-    "/users/": {
+    "/api/v1/users/": {
       "get": {
         "tags": [
           "Users"
@@ -181,7 +191,7 @@
         }
       }
     },
-    "/users/{id}": {
+    "/api/v1/users/{id}": {
       "get": {
         "tags": [
           "Users"
@@ -323,7 +333,7 @@
         }
       }
     },
-    "/brands/": {
+    "/api/v1/brands/": {
       "get": {
         "tags": [
           "Brands"
@@ -359,7 +369,7 @@
         }
       }
     },
-    "/brands/{id}": {
+    "/api/v1/brands/{id}": {
       "get": {
         "tags": [
           "Brands"
@@ -457,7 +467,7 @@
         }
       }
     },
-    "/categories/": {
+    "/api/v1/categories/": {
       "get": {
         "tags": [
           "Categories"
@@ -493,7 +503,7 @@
         }
       }
     },
-    "/categories/{id}": {
+    "/api/v1/categories/{id}": {
       "get": {
         "tags": [
           "Categories"
@@ -591,7 +601,7 @@
         }
       }
     },
-    "/firms/": {
+    "/api/v1/firms/": {
       "get": {
         "tags": [
           "Firms"
@@ -627,7 +637,7 @@
         }
       }
     },
-    "/firms/{id}": {
+    "/api/v1/firms/{id}": {
       "get": {
         "tags": [
           "Firms"
@@ -725,7 +735,7 @@
         }
       }
     },
-    "/products/": {
+    "/api/v1/products/": {
       "get": {
         "tags": [
           "Products"
@@ -761,7 +771,7 @@
         }
       }
     },
-    "/products/{id}": {
+    "/api/v1/products/{id}": {
       "get": {
         "tags": [
           "Products"
@@ -859,7 +869,7 @@
         }
       }
     },
-    "/purchases/": {
+    "/api/v1/purchases/": {
       "get": {
         "tags": [
           "Purchases"
@@ -895,7 +905,7 @@
         }
       }
     },
-    "/purchases/{id}": {
+    "/api/v1/purchases/{id}": {
       "get": {
         "tags": [
           "Purchases"
@@ -993,7 +1003,7 @@
         }
       }
     },
-    "/sales/": {
+    "/api/v1/sales/": {
       "get": {
         "tags": [
           "Sales"
@@ -1029,7 +1039,7 @@
         }
       }
     },
-    "/sales/{id}": {
+    "/api/v1/sales/{id}": {
       "get": {
         "tags": [
           "Sales"

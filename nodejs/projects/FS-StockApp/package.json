@@ -7,7 +7,8 @@
   "scripts": {
     "start": "nodemon",
     "debug": "DEBUG=* nodemon",
-    "dev": "node swaggerAutogen && nodemon index.js"
+    "dev": "node swaggerAutogen && nodemon index.js",
+    "vercel-build": "pnpm install && pnpm --filter ./client... install --prod=false && pnpm --filter ./client... run build"
   },
   "keywords": [],
   "author": "CourseName",
