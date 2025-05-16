@@ -8,31 +8,13 @@ const router = require("express").Router();
 
 const todo = require('../controllers/todo.controller.view');
 
-// // List
-// router.get('/todos', todo.list);
 
-// //* CRUD OPERATIONS
+router.get('/', todo.list)
+router.all('/create', todo.create);
 
-// // Create
-// router.post('/todos', todo.create);
-
-// // Read
-// router.get('/todos/:id', todo.read);
-
-// // Update
-// router.put('/todos/:id', todo.update);
-
-// // Delete
-// router.delete('/todos/:id', todo.delete);
-
-
-router.route('/todos')
-    .get(todo.list)
-    .post(todo.create);
-
-router.route('/todos/:id')
-    .get(todo.read)
-    .put(todo.update)
-    .delete(todo.delete);
+router.get("/:id", todo.read)
+router.all("/:id/update", todo.update)
+    
+// .delete(todo.delete);
 
 module.exports = router;

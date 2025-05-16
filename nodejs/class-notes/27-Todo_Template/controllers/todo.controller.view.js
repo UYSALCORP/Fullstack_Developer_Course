@@ -5,6 +5,12 @@
 
 const Todo = require('../models/todo.model');
 
+const PRIORITIES = {
+    '-1': 'Low',
+    '0': 'Normal',
+    '1': 'High',
+}
+
 module.exports = {
     list: async (req, res) => {
 
@@ -12,50 +18,46 @@ module.exports = {
         // const result = await Todo.findAll({ attributes: ['title', 'description'] }); // select title, description from ...
         const result = await Todo.findAndCountAll();
 
-        res.render("index")
+        res.render('index', { todos: result.rows, count: result.count, priorities: PRIORITIES });
     },
 
     create: async (req, res) => {
 
-        // const result = await Todo.create({
-        //     title: "todo-2",
-        //     description: "desc-2",
-        //     priority: 0,
-        //     isDone: false
-        // });
+        if (req.method === 'POST') {
+            const result = await Todo.create(req.body);
 
-        const result = await Todo.create(req.body);
+            if (result) res.redirect('/view');
 
-        res.status(201).send({
-            error: false,
-            result: result
-        });
+        } else {
+
+            res.render('todoCreate');
+        }
+
     },
 
     read: async (req, res) => {
 
         // const result = await Todo.findOne({ where: { id: req.params.id } });
-        const result = await Todo.findByPk(req.params.id);
+        const todo = await Todo.findByPk(req.params.id);
 
-        res.status(200).send({
-            error: false,
-            result
-        })
+        res.render('todoRead', { todo, priorities: PRIORITIES });
     },
 
     update: async (req, res) => {
 
-        // await Todo.update({...newData}, {...where})
-        const result = await Todo.update(req.body, { where: { id: req.params.id } }); // returns [1] or [0]
 
-        res.status(202).send({
-            error: false,
-            result,
-            new: await Todo.findByPk(req.params.id)
-        });
+        if (req.method === 'POST') {
+            const result = await Todo.update(req.body, { where: { id: req.params.id } }); // returns [1] or [0]
+            res.redirect('/view');
+        } else {
+            const todo = await Todo.findByPk(req.params.id);
+
+            res.render('todoUpdate', { todo , priorities: PRIORITIES})
+        }
     },
 
     delete: async (req, res) => {
+        // todo homework
 
         // await Todo.destroy({...where})
         const result = await Todo.destroy({ where: { id: req.params.id } }); // returns 1 or 0

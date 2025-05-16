@@ -17,6 +17,8 @@ require('express-async-errors');
 
 // Accept json data:
 app.use(express.json());
+// Accesp form data and convert to object:
+app.use(express.urlencoded({ extended: true }));
 /* ------------------------------------------------------- */
 // Templates:
 // https://ejs.co/
