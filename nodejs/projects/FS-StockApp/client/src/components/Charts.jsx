@@ -1,4 +1,3 @@
-"use client";
 
 import { AreaChart } from "@tremor/react";
 import { useSelector } from "react-redux";
