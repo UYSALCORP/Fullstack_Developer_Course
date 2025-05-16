@@ -6,7 +6,7 @@
 
 const router = require("express").Router();
 
-const todo = require('../controllers/todo.controller');
+const todo = require('../controllers/todo.controller.api');
 
 // // List
 // router.get('/todos', todo.list);

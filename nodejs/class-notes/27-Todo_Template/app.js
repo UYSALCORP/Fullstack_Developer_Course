@@ -23,16 +23,27 @@ app.use(express.json());
 // https://expressjs.com/en/guide/using-template-engines.html
 // $ npm i ejs
 app.set('view engine', 'ejs'); // Default folder is: ./views
+app.set('views', './public'); // new ejs folder name 
 
 
 /* ------------------------------------------------------- */
 // ROUTERS:
 
 app.all('/', (req, res) => {
-    res.send('WELCOME TO TODO API')
+
+    // To run html pages, need to use render('filename')
+    // res.render('index.ejs');
+    // res.render('index');
+
+    res.send(`
+    <div><a href="/view">Todo Template</a></div>
+    <div><a href="/api/v1/todos">Todo API</a></div>
+    `)
 });
 
-app.use(require('./routes/todo.router'));
+
+app.use('/api/v1', require('./routes/todo.router.api'));
+app.use('/view', require('./routes/todo.router.view'));
 
 /* ------------------------------------------------------- */
 // ErrorHandler
