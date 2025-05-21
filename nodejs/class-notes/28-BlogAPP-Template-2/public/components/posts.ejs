@@ -1,0 +1,24 @@
+{% posts.forEach(post => { %}
+
+<article class="blog-post">
+    <h2 class="display-5 mb-1">
+        <a href="/blog/posts/{%= post.id %}" class="link-body-emphasis text-decoration-none">{%= post.title %}</a>
+    </h2>
+    <p class="blog-post-meta">{%= post.createdAt.toUTCString() %}</p>
+    <p>
+        {%- post.content.substring(0, 470) %}
+        <span class="text-primary">...read more</span>
+    </p>
+
+    {% if(user) { %}
+
+    <div class="admin-area text-end">
+        <a class="btn btn-sm btn-primary" href="/blog/posts/{%= post.id %}/update">Update</a>
+        <a class="btn btn-sm btn-danger" href="/blog/posts/{%= post.id %}/delete"
+            onclick="return confirm('Are you sure?')">Delete</a>
+    </div>
+    {% } %}
+
+</article>
+
+{% }) %}

@@ -1,0 +1,24 @@
+{
+  "name": "13-blogapi_mongoose",
+  "version": "1.0.0",
+  "description": "## MONGOOSE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ui": "browser-sync start --proxy localhost:8000 --files \"views/**/*.ejs, public/**/*.*, src/**/*.*\"  --ignore=node_modules --reload-delay 1000 --no-notify --no-ui --no-inject-changes"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-session": "^2.0.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^5.1.0",
+    "mongoose": "^8.0.0",
+    "tinymce": "^6.7.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3"
+  }
+}
