@@ -1,0 +1,11 @@
+FROM node:21-alpine3.18
+
+# Set the working directory
+WORKDIR /app
+
+# COPY hello.js /app/
+COPY . .
+
+# Command to run the application
+# This will run the hello.js script when the container starts   
+CMD [ "node", "hello.js" ]
