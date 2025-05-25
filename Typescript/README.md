@@ -9,7 +9,7 @@
 
 ## Run a Project:
 - tsc --init
-- After specified directions run "tsc" command. It compiles Typescript to Javascript. 
+- After specified directions run "tsc" command. It compiles Typescript to Javascript and creates "app.js" file on your outDir
 - tsc --watch automaticly compile 
 
 ## tsconfig.json
@@ -18,7 +18,14 @@
 - "target" -> Set the JavaScript language version for emitted JavaScript and include compatible library declarations. (Row 14)
 - "removeComments" -> Disable emitting comments (Derlendiğinde yorum satırlarını kaldırır.) (Row 62)
 - "noEmitOnError" -> Disable emitting files if any type checking errors are reported. (Hata varsa compile etmez.) (Row 72)
- 
+- Ve daha birçok ayar
+
+## How to create Typescript project:
+- npx create-react-app (<Optional>)
+- pnpm create vite projectName(.) --template react-ts (<Recommended>)
+* if you're not at same directory in terminal -> cd projectName
+* then pnpm install, pnpm run dev
+
 ## Cross-Platform:
 - JS'in çalıştırdığı bütün platformlarda çalışır.
 - JS kodlarına compile edilir. Yoksa browserlarda çalışmaz.
@@ -67,6 +74,29 @@
 - TS'nin sıkı tür denetimini devre dışı bırakır
 - Can be use for dynamic contents, user-entered values from third party libraries.
 - let arr: any[] =["Yunus", 24, true]; (Array'e tür tanımlaması yapmamış oluyoruz fakat ts erroru da almıyoruz.)
+
+# Union(Birleşim) and Intersection(Kesişim):
+- Union: Javascript OR yapısını ifade eder.
+- Intersection: Javascript AND yapısını ifade eder.
+
+# Classes: 
+- Using for create reusable components.
+- Objects are created from classes.
+- A class can include -> Constructor, Properties, Methods.
+- Classes are inheritance -> Using by "extends".
+- Abstract Classes -> abstract method must be defined in the derived class. Abstract classes do not allow an object to be derived from them. Must call super() in the constructor
+
+# Class Data Modifiers:
+- In OOP, "Encapsulation" is used to make class members public or private
+- 3 Type of access modifiers ; public(default), private, protected
+- public:Varsayılan erişim seviyesi. Sınıf içinden ve dışından erişilebilir.
+- private:Sadece tanımlandığı sınıf içinden erişilebilir.
+- protected:Sadece sınıf içinden ve alt sınıflar (inheritance) tarafından erişilebilir.
+
+# Interface:
+- Interface, TypeScript’te güçlü bir araçtır ve nesnelerin, sınıfların ve fonksiyonların yapısını tanımlamak için kullanılır. Kodun daha okunabilir, güvenli ve hataya daha az açık hale gelmesini sağlar.
+- Typescript'te objelerde "interface" / fonksiyonlarda "type" kullanımı daha yaygındır.
+- Classlarda inherit(extends) benzeri bir yapı olan "implements" kullanılır.
 
 # Pros (Avantajlar):
 - Strict Typing: Kesin tip tanımlaması. (Number, string?)
