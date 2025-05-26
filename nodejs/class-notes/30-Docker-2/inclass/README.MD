@@ -217,3 +217,11 @@ services:
 ## Frontend - on frontend bash terminal
 - docker build .-t frontend
 - docker run --name frontendcontainer -p 5173:5173 frontend
+## Docker Compose
+- #$ docker compose up # compose çalıştır.
+- #$ docker compose up -d --build # compose daemon aç ve tekrar build et.
+- #$ docker compose down # compose kapat.
+- #$ docker compose down -v # compose tümünü kapat.
+
+## Extra bilgi Daemon gibi bir şey - Ana roottan terminalde kullanım | -d
+- docker run -d -p 8000:8000 --name backend docker-compose-baclemd

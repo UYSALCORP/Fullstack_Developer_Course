@@ -1,0 +1,35 @@
+/docker-compose.yml:
+
+# Docker Compose dosyası, birden fazla servisi tanımlamak için kullanılır.
+# Bu örnekte, frontend ve backend servisleri tanımlanmıştır.
+# Dockerfile'lar, ilgili klasörlerde bulunmalıdır.
+# Docker Compose, servisleri kolayca yönetmek için kullanılır.
+
+# Docker Compose sürümü, opsiyonel olarak belirtilebilir.
+version: "3.9" # opsiyonel.
+
+services:
+
+    frontend:
+        # container_name: frontend # (default:key)
+        image: "docker-compose-frontend" # image_name
+        build: ./frontend # Dockerize edilecek klasör (dockerfile)
+        ports:
+            # dış/iç port numaraları
+            - 5173:5173
+            - 3000:5173
+            - 80:5173
+            - 1907:5173
+        restart: on-failure # hata anında tekrar çalıştır.
+        depends_on:
+            # önce aşağıdakileri çalıştır.
+            - backend # aşağıda tanımlandı.
+
+    backend:
+        # container_name: backend # (default:key)
+        image: "docker-compose-backend" # image_name
+        build: ./backend # Dockerize edilecek klasör (dockerfile)
+        ports:
+            # dış/iç port numaraları
+            - 8000:8000
+        restart: on-failure # hata anında tekrar çalıştır.
