@@ -18,7 +18,7 @@
 - "target" -> Set the JavaScript language version for emitted JavaScript and include compatible library declarations. (Row 14)
 - "removeComments" -> Disable emitting comments (Derlendiğinde yorum satırlarını kaldırır.) (Row 62)
 - "noEmitOnError" -> Disable emitting files if any type checking errors are reported. (Hata varsa compile etmez.) (Row 72)
-- Ve daha birçok ayar
+- Ve daha birçok ayar birkaç tane önemli başlangıç ayarlarını ekledim.
 
 ## How to create Typescript project:
 - npx create-react-app (<Optional>)
@@ -49,6 +49,18 @@
 # Type Annotation (Dipnot):
 - (:) kullanarak yapılır fe: let decimal : number = 6
 - let(Declare) message(Name it) :(Annotate it) string(Data Type) = "Hello World!"(Initialise)
+
+# Pros (Avantajlar):
+- Strict Typing: Kesin tip tanımlaması. (Number, string?)
+- Structural Typing: Yapısal olarak tip kontrolü. (Bi nesne tanımlayıp, o nesneden başka nesneler üretmek gibi.)
+- Type Annotations: Tiplerin belirtilmesi. Öneri olarak sunulur, gözardı edebilirsin.
+- Type inference: Otomatik olarak tipi algılar. ("merhaba" yazdığında onun string olduğunu algılaması gibi.)
+
+# Cons (Dezavantajlar):
+- Not true static typing.
+- One more Javascript to learn
+- Adding extra step - transpiling (Derlenme zamanı, compile işlemi)
+- Bloated code (More lines of coding)
 
 # Data Types - Basic Types:
 - Boolean: Simple true/false value
@@ -95,17 +107,5 @@
 
 # Interface:
 - Interface, TypeScript’te güçlü bir araçtır ve nesnelerin, sınıfların ve fonksiyonların yapısını tanımlamak için kullanılır. Kodun daha okunabilir, güvenli ve hataya daha az açık hale gelmesini sağlar.
-- Typescript'te objelerde "interface" / fonksiyonlarda "type" kullanımı daha yaygındır.
+- Typescript'te objelerde "interface" / fonksiyonlarda "type" kullanımı daha yaygındır. Type Aliases (Type kullanımı)
 - Classlarda inherit(extends) benzeri bir yapı olan "implements" kullanılır.
-
-# Pros (Avantajlar):
-- Strict Typing: Kesin tip tanımlaması. (Number, string?)
-- Structural Typing: Yapısal olarak tip kontrolü. (Bi nesne tanımlayıp, o nesneden başka nesneler üretmek gibi.)
-- Type Annotations: Tiplerin belirtilmesi. Öneri olarak sunulur, gözardı edebilirsin.
-- Type inference: Otomatik olarak tipi algılar. ("merhaba" yazdığında onun string olduğunu algılaması gibi.)
-
-# Cons (Dezavantajlar):
-- Not true static typing.
-- One more Javascript to learn
-- Adding extra step - transpiling (Derlenme zamanı, compile işlemi)
-- Bloated code (More lines of coding)

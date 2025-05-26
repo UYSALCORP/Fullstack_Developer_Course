@@ -1,0 +1,14 @@
+# Dockerfile for the backend service
+FROM node:current-alpine3.21
+# Set the working directory
+WORKDIR /backend
+# Copy / 1.Nokta -> Yereldeki(backend) klasörü al kendi docker ortamına taşı
+COPY . .
+# Running / Sadece projen ilk ayağa kaldırıldığında çalıştırılacak komutlar
+RUN mkdir -p logs
+RUN mkdir -p uploads
+RUN npm install
+# CMD / Her ayağa kaldırmada çalıştırılacak komutlar
+CMD ["npm", "start"]
+# Expose the port the app runs on
+EXPOSE 8000
